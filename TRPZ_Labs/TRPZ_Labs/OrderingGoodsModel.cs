@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TRPZ_Labs;
 
-namespace TRPZ_Labs
+namespace GoodsOrdering
 {
     public class OrderingGoodsModel
     {
@@ -33,6 +34,11 @@ namespace TRPZ_Labs
         public List<Order> GetOrders()
         {
             return orders;
+        }
+
+        public void AddOrder(Order order)
+        {
+            orders.Add(order);
         }
     }
 }
