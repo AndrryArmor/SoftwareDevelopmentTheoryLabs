@@ -6,12 +6,12 @@ using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TRPZ_Labs
+namespace GoodsOrdering
 {
     public class DataLoader
     {
         private const string goodsFileName = "Goods.data";
-        private const string shopsFileName = "ShopGoods.data";
+        private const string shopsFileName = "Shops.data";
         private const string jsonFileName = "Orders.json";
         private const string dataPath = "..\\..\\Data\\";
 
@@ -24,8 +24,9 @@ namespace TRPZ_Labs
             {
                 while (!goodsData.EndOfStream)
                 {
-                    string[] parameters = goodsData.ReadLine().Split(',');
-                    parameters.Select(parameter => parameter.Trim(' ', '"'));
+                    string[] parameters = goodsData.ReadLine().Split('}');
+                    for (int i = 0; i < parameters.Length; i++)
+                        parameters[i] = parameters[i].Trim(' ', ',', '{', '}');
 
                     int id = int.Parse(parameters[0]);
                     string name = parameters[1];
@@ -48,7 +49,8 @@ namespace TRPZ_Labs
                 while (!shopGoodsData.EndOfStream)
                 {
                     string[] parameters = shopGoodsData.ReadLine().Split(',');
-                    parameters.Select(parameter => parameter.Trim(' ', '"'));
+                    for (int i = 0; i < parameters.Length; i++)
+                        parameters[i] = parameters[i].Trim(' ', '{', '}');
 
                     string shopName = parameters[0];
                     var items = new List<Item>();

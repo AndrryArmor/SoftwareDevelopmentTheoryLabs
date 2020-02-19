@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TRPZ_Labs
+namespace GoodsOrdering
 {
     public class OrderingGoodsModel
     {
@@ -33,6 +33,11 @@ namespace TRPZ_Labs
         public List<Order> GetOrders()
         {
             return orders;
+        }
+
+        public void AddOrder(Order order)
+        {
+            orders.Add(order);
         }
     }
 }
