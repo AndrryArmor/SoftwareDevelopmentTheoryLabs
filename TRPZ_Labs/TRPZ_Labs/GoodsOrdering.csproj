@@ -57,6 +57,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Container.cs" />
     <Compile Include="DataLoader.cs" />
     <Compile Include="IGoodSearchView.cs" />
     <Compile Include="OrderingGoodsModel.cs" />

@@ -4,7 +4,7 @@ using System.IO;
 using System.Runtime.Serialization.Json;
 using GoodsOrdering;
 
-namespace TRPZ_Labs
+namespace GoodsOrdering
 {
     public class DataLoader
     {
