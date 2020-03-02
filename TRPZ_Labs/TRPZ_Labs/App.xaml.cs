@@ -2,7 +2,7 @@
 using System.Windows;
 using MessageBox = System.Windows.MessageBox;
 
-namespace TRPZ_Labs
+namespace GoodsOrdering
 {
     /// <summary>
     /// Interaction logic for App.xaml
