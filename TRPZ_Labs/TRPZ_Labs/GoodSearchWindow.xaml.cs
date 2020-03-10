@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -13,23 +13,32 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TRPZ_Labs;
 
 namespace GoodsOrdering
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class GoodSearchWindow : Window, IGoodSearchView
+    public partial class GoodSearchWindow : Window, IOrderingGoodsView
     {
-        private readonly OrderingGoodsPresenter presenter;
-        private readonly OrdersWindow ordersWindow;
+        private GoodSearchWindow goodSearchWindow;
+        private OrderingGoodsPresenter presenter;
+        private OrdersWindow ordersWindow;
 
         public GoodSearchWindow()
         {
             InitializeComponent();
-            presenter = new OrderingGoodsPresenter(this);
-            ordersWindow = new OrdersWindow(presenter.GetOrders());
+        }
+
+        public void AddPresenter(OrderingGoodsPresenter presenter)
+        {
+            this.presenter = presenter;
+            this.presenter.AddView(this);
+        }
+
+        public void AddModel(OrderingGoodsModel model)
+        {
+            presenter.AddModel(model);
         }
 
         public void SetGoodNames(HashSet<string> goodNames)
@@ -44,12 +53,15 @@ namespace GoodsOrdering
 
         public void SetOrderRows(List<Order> orders)
         {
+            if (ordersWindow == null)
+                ordersWindow = new OrdersWindow(presenter.GetOrders());
             ordersWindow.DataGridOrders.ItemsSource = orders;
         }
 
         private void ComboBoxGoodChoice_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            presenter.GoodSearchView_GoodNameChanged((string)((ComboBox)sender).SelectedValue);
+            if (presenter != null)
+                presenter.GoodSearchView_GoodNameChanged((string)((ComboBox)sender).SelectedValue);
         }
 
         private void ButtonViewOrders_Click(object sender, RoutedEventArgs e)
@@ -61,7 +73,8 @@ namespace GoodsOrdering
         {
             Item item = (Item)DataGridAvailableGoodsList.SelectedItem;
             TimeSpan term = new TimeSpan((int)SliderTerm.Value, 0, 0, 0);
-            presenter.GoodSearchView_MakeOrder(item, DateTime.Now, term);
+            if (presenter != null)
+                presenter.GoodSearchView_MakeOrder(item, DateTime.Now, term);
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

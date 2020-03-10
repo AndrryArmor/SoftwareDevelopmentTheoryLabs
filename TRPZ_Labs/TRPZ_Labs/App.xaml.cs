@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows;
 using MessageBox = System.Windows.MessageBox;
 
@@ -9,6 +9,20 @@ namespace GoodsOrdering
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+
+            var container = new Container();
+            container.Register<IOrderingGoodsView, GoodSearchWindow>();
+            container.Register<OrderingGoodsPresenter, OrderingGoodsPresenter>();
+            container.Register<OrderingGoodsModel, OrderingGoodsModel>();
+            var mainWindow = container.Resolve<IOrderingGoodsView>();
+
+            mainWindow.AddPresenter(container.Resolve<OrderingGoodsPresenter>());
+            mainWindow.AddModel(container.Resolve<OrderingGoodsModel>());
+            mainWindow.Show();
+        }
         public static MessageBoxResult ShowMessage(string message, bool isQuestion = false)
         {
             if (string.IsNullOrEmpty(message) == true)
