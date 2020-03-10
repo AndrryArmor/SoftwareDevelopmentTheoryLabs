@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace TRPZ_Labs
+namespace GoodsOrdering
 {
     public class Shop
     {

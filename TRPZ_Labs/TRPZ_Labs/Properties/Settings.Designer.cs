@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TRPZ_Labs.Properties
+namespace GoodsOrdering.Properties
 {
 
 

@@ -38,6 +38,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -56,10 +57,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Container.cs" />
     <Compile Include="DataLoader.cs" />
+    <Compile Include="IGoodSearchView.cs" />
     <Compile Include="OrderingGoodsModel.cs" />
+    <Compile Include="OrderingGoodsPresenter.cs" />
+    <Compile Include="OrdersWindow.xaml.cs">
+      <DependentUpon>OrdersWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Shop.cs" />
-    <Page Include="MainWindow.xaml">
+    <Page Include="GoodSearchWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -69,10 +76,14 @@
     </Compile>
     <Compile Include="Good.cs" />
     <Compile Include="Item.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="GoodSearchWindow.xaml.cs">
+      <DependentUpon>GoodSearchWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="OrdersWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Order.cs" />
