@@ -59,7 +59,7 @@
     </ApplicationDefinition>
     <Compile Include="Container.cs" />
     <Compile Include="DataLoader.cs" />
-    <Compile Include="IGoodSearchView.cs" />
+    <Compile Include="IOrderingGoodsView.cs" />
     <Compile Include="OrderingGoodsModel.cs" />
     <Compile Include="OrderingGoodsPresenter.cs" />
     <Compile Include="OrdersWindow.xaml.cs">

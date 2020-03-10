@@ -10,34 +10,45 @@ namespace GoodsOrdering
 {
     public class OrderingGoodsPresenter
     {
-        private readonly IGoodSearchView goodSearchView;
-        private readonly OrderingGoodsModel model;
+        private IOrderingGoodsView view;
+        private OrderingGoodsModel model;
 
-        public OrderingGoodsPresenter(IGoodSearchView goodSearchView)
+        public OrderingGoodsPresenter() { }
+        
+        public void AddView(IOrderingGoodsView view)
         {
-            this.goodSearchView = goodSearchView;
-            model = new OrderingGoodsModel();
+            this.view = view;
+        }
+
+        public void AddModel(OrderingGoodsModel model)
+        {
+            this.model = model;
 
             IEnumerable<string> goodNamesList = model.GetGoods().Select(good => good.Name);
-            goodSearchView.SetGoodNames(goodNamesList.ToHashSet());
-        }        
+            view.SetGoodNames(goodNamesList.ToHashSet());
+        }
 
         public void GoodSearchView_GoodNameChanged(string goodName)
         {
-            List<Item> items = model.GetShops().SelectMany(shop => shop.GetItems()).ToList();
-            items.RemoveAll(item => item.Good.Name != goodName);
-            goodSearchView.SetItemRows(items);
+            if (model != null)
+            {
+                List<Item> items = model.GetShops().SelectMany(shop => shop.GetItems()).ToList();
+                items.RemoveAll(item => item.Good.Name != goodName);
+                view.SetItemRows(items);
+            }
         }
 
         public void GoodSearchView_MakeOrder(Item item, DateTime date, TimeSpan term)
         {
-            model.AddOrder(new Order(item, date, term));
-            goodSearchView.SetOrderRows(model.GetOrders());
+            if (model != null)
+                model.AddOrder(new Order(item, date, term));
+            if (view != null)
+                view.SetOrderRows(model.GetOrders());
         }
 
         public List<Order> GetOrders()
         {
-            return model.GetOrders();
+            return model?.GetOrders();
         }
     }
 }
