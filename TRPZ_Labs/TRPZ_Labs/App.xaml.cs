@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows;
 using MessageBox = System.Windows.MessageBox;
 
@@ -23,7 +23,6 @@ namespace GoodsOrdering
             mainWindow.AddModel(container.Resolve<OrderingGoodsModel>());
             mainWindow.Show();
         }
-
         public static MessageBoxResult ShowMessage(string message, bool isQuestion = false)
         {
             if (string.IsNullOrEmpty(message) == true)

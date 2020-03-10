@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -79,7 +79,7 @@ namespace GoodsOrdering
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-        new DataLoader().SerializeOrders(presenter.GetOrders());
+            new DataLoader().SerializeOrders(presenter.GetOrders());
         }
     }
 }
