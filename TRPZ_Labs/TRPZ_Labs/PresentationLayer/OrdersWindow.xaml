@@ -1,9 +1,9 @@
-﻿<Window x:Class="GoodsOrdering.OrdersWindow"
+﻿<Window x:Class="OrderingGoods.PresentationLayer.OrdersWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:GoodsOrdering"
+        xmlns:local="clr-namespace:OrderingGoods.PresentationLayer"
         mc:Ignorable="d"
         Title="Orders" Height="300" Width="750" ResizeMode="CanMinimize" Closing="Window_Closing">
     <Grid>

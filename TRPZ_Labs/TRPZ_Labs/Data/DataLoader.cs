@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Json;
-using GoodsOrdering;
+using Good = OrderingGoods.BusinessLayer.Good;
+using Shop = OrderingGoods.BusinessLayer.Shop;
+using Item = OrderingGoods.BusinessLayer.Item;
+using Order = OrderingGoods.BusinessLayer.Order;
 
-namespace TRPZ_Labs
+namespace OrderingGoods
 {
     public class DataLoader
     {

@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Good = OrderingGoods.BusinessLayer.Good;
+using Shop = OrderingGoods.BusinessLayer.Shop;
+using Order = OrderingGoods.BusinessLayer.Order;
 
-namespace GoodsOrdering
+namespace OrderingGoods.PresentationLayer
 {
     public class OrderingGoodsModel
     {

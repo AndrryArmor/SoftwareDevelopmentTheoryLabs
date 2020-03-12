@@ -1,8 +1,8 @@
-﻿<Application x:Class="OrderingGoods.App"
+﻿<Application x:Class="BusinessLayer.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:OrderingGoods"
-             Startup="App_OnStartup">
+             xmlns:local="clr-namespace:BusinessLayer"
+             StartupUri="MainWindow.xaml">
     <Application.Resources>
          
     </Application.Resources>

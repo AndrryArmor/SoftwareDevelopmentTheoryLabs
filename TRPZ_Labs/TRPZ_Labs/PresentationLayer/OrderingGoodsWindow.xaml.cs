@@ -13,33 +13,29 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Good = OrderingGoods.BusinessLayer.Good;
+using Shop = OrderingGoods.BusinessLayer.Shop;
+using Item = OrderingGoods.BusinessLayer.Item;
+using Order = OrderingGoods.BusinessLayer.Order;
 
-namespace GoodsOrdering
+namespace OrderingGoods.PresentationLayer
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for OrderingGoodsWindow.xaml
     /// </summary>
-    public partial class GoodSearchWindow : Window, IOrderingGoodsView
+    public partial class OrderingGoodsWindow : Window, IOrderingGoodsView
     {
-        private GoodSearchWindow goodSearchWindow;
-        private OrderingGoodsPresenter presenter;
-        private OrdersWindow ordersWindow;
+        private readonly OrderingGoodsPresenter presenter;
+        private readonly OrdersWindow ordersWindow;
 
-        public GoodSearchWindow()
+        public OrderingGoodsWindow(OrderingGoodsModel model)
         {
             InitializeComponent();
+            presenter = new OrderingGoodsPresenter(this, model);
+            ordersWindow = new OrdersWindow(presenter.GetOrders());
         }
 
-        public void AddPresenter(OrderingGoodsPresenter presenter)
-        {
-            this.presenter = presenter;
-            this.presenter.AddView(this);
-        }
-
-        public void AddModel(OrderingGoodsModel model)
-        {
-            presenter.AddModel(model);
-        }
+        #region IOrderingGoodsView interface implementation
 
         public void SetGoodNames(HashSet<string> goodNames)
         {
@@ -53,15 +49,14 @@ namespace GoodsOrdering
 
         public void SetOrderRows(List<Order> orders)
         {
-            if (ordersWindow == null)
-                ordersWindow = new OrdersWindow(presenter.GetOrders());
             ordersWindow.DataGridOrders.ItemsSource = orders;
         }
 
+        #endregion
+
         private void ComboBoxGoodChoice_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (presenter != null)
-                presenter.GoodSearchView_GoodNameChanged((string)((ComboBox)sender).SelectedValue);
+            presenter.GoodSearchView_GoodNameChanged((string)((ComboBox)sender).SelectedValue);
         }
 
         private void ButtonViewOrders_Click(object sender, RoutedEventArgs e)
@@ -73,13 +68,14 @@ namespace GoodsOrdering
         {
             Item item = (Item)DataGridAvailableGoodsList.SelectedItem;
             TimeSpan term = new TimeSpan((int)SliderTerm.Value, 0, 0, 0);
-            if (presenter != null)
-                presenter.GoodSearchView_MakeOrder(item, DateTime.Now, term);
+
+            presenter.GoodSearchView_MakeOrder(item, DateTime.Now, term);
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             new DataLoader().SerializeOrders(presenter.GetOrders());
+            Application.Current.Shutdown();
         }
     }
 }

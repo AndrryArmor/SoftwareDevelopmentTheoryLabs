@@ -1,28 +1,38 @@
 using System;
 using System.Windows;
+using Microsoft.Extensions.DependencyInjection;
 using MessageBox = System.Windows.MessageBox;
+using OrderingGoods.PresentationLayer;
+using System.Collections.Generic;
 
-namespace GoodsOrdering
+namespace OrderingGoods
 {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
     {
-        protected override void OnStartup(StartupEventArgs e)
+        private readonly ServiceProvider serviceProvider;
+
+        public App()
         {
-            base.OnStartup(e);
+            var services = new ServiceCollection();
+            ConfigureServices(services);
+            serviceProvider = services.BuildServiceProvider(validateScopes: true);
+        }
 
-            var container = new Container();
-            container.Register<IOrderingGoodsView, GoodSearchWindow>();
-            container.Register<OrderingGoodsPresenter, OrderingGoodsPresenter>();
-            container.Register<OrderingGoodsModel, OrderingGoodsModel>();
-            var mainWindow = container.Resolve<IOrderingGoodsView>();
+        private void ConfigureServices(IServiceCollection services)
+        {
+            services.AddSingleton<OrderingGoodsWindow, OrderingGoodsWindow>();
+            services.AddSingleton<OrderingGoodsModel, OrderingGoodsModel>();
+        }
 
-            mainWindow.AddPresenter(container.Resolve<OrderingGoodsPresenter>());
-            mainWindow.AddModel(container.Resolve<OrderingGoodsModel>());
+        private void App_OnStartup(object sender, StartupEventArgs e)
+        {
+            var mainWindow = serviceProvider.GetService<OrderingGoodsWindow>();
             mainWindow.Show();
         }
+
         public static MessageBoxResult ShowMessage(string message, bool isQuestion = false)
         {
             if (string.IsNullOrEmpty(message) == true)

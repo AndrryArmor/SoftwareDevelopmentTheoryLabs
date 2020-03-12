@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GoodsOrdering
+namespace OrderingGoods.BusinessLayer
 {
     [DataContract]
     public class Order

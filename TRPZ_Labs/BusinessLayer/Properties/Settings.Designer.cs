@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OrderingGoods.Properties
+namespace BusinessLayer.Properties
 {
 
 
