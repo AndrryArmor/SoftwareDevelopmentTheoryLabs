@@ -5,8 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Good = OrderingGoods.BusinessLayer.Good;
-using Shop = OrderingGoods.BusinessLayer.Shop;
 using Item = OrderingGoods.BusinessLayer.Item;
 using Order = OrderingGoods.BusinessLayer.Order;
 
@@ -15,9 +13,9 @@ namespace OrderingGoods.PresentationLayer
     public class OrderingGoodsPresenter
     {
         private readonly IOrderingGoodsView view;
-        private readonly OrderingGoodsModel model;
+        private readonly BusinessLayer.IOrderingGoodsModel model;
 
-        public OrderingGoodsPresenter(IOrderingGoodsView view, OrderingGoodsModel model)
+        public OrderingGoodsPresenter(IOrderingGoodsView view, BusinessLayer.IOrderingGoodsModel model)
         {
             this.view = view;
             this.model = model;

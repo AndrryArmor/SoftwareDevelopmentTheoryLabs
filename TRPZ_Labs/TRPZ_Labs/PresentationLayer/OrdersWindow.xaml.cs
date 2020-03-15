@@ -11,8 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Good = OrderingGoods.BusinessLayer.Good;
-using Shop = OrderingGoods.BusinessLayer.Shop;
 using Item = OrderingGoods.BusinessLayer.Item;
 using Order = OrderingGoods.BusinessLayer.Order;
 using OrderingGoods;

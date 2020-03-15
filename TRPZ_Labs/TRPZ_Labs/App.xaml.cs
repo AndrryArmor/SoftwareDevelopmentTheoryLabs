@@ -3,7 +3,6 @@ using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
 using MessageBox = System.Windows.MessageBox;
 using OrderingGoods.PresentationLayer;
-using System.Collections.Generic;
 
 namespace OrderingGoods
 {

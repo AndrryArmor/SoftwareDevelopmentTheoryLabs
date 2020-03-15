@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using Good = OrderingGoods.BusinessLayer.Good;
 using Shop = OrderingGoods.BusinessLayer.Shop;
 using Order = OrderingGoods.BusinessLayer.Order;
+using OrderingGoods.Data;
 
 namespace OrderingGoods.PresentationLayer
 {
-    public class OrderingGoodsModel
+    public class OrderingGoodsModel : BusinessLayer.IOrderingGoodsModel
     {
         private readonly List<Good> goods;
         private readonly List<Shop> shops;

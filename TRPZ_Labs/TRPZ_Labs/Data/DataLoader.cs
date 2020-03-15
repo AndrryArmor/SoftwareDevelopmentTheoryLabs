@@ -7,21 +7,18 @@ using Shop = OrderingGoods.BusinessLayer.Shop;
 using Item = OrderingGoods.BusinessLayer.Item;
 using Order = OrderingGoods.BusinessLayer.Order;
 
-namespace OrderingGoods
+namespace OrderingGoods.Data
 {
     public class DataLoader
     {
-        private const string goodsFileName = "Goods.data";
-        private const string shopsFileName = "Shops.data";
-        private const string jsonFileName = "Orders.json";
-        private const string dataPath = "..\\..\\Data\\";
+        private readonly Properties.Settings settings = Properties.Settings.Default;
 
         public List<Good> LoadGoods()
         {
             var goods = new List<Good>();
 
             // Good describes as string of "ID, Name, Model, Manufacturer, Description"  
-            using (var goodsData = new StreamReader(new Uri(dataPath + goodsFileName, UriKind.Relative).ToString()))
+            using (var goodsData = new StreamReader(new Uri(settings.DataPath + settings.GoodsFileName, UriKind.Relative).ToString()))
             {
                 while (!goodsData.EndOfStream)
                 {
@@ -45,7 +42,7 @@ namespace OrderingGoods
             var shops = new List<Shop>();
 
             // Shop describes as "Name, goodID1, price1, goodID2, price2, ..."
-            using (var shopGoodsData = new StreamReader(new Uri(dataPath + shopsFileName, UriKind.Relative).ToString()))
+            using (var shopGoodsData = new StreamReader(new Uri(settings.DataPath + settings.ShopsFileName, UriKind.Relative).ToString()))
             {
                 while (!shopGoodsData.EndOfStream)
                 {
@@ -72,7 +69,7 @@ namespace OrderingGoods
 
         public List<Order> DeserializeOrders()
         {
-            string path = dataPath + jsonFileName;
+            string path = settings.DataPath + settings.OrdersFileName;
             if (File.Exists(path) == false || File.ReadAllText(path) == "")
                 return new List<Order>();
 
@@ -85,7 +82,7 @@ namespace OrderingGoods
 
         public void SerializeOrders(List<Order> orders)
         {
-            string path = dataPath + jsonFileName;
+            string path = settings.DataPath + settings.OrdersFileName;
             if (orders == null || orders.Count == 0)
                 return;
 
