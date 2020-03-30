@@ -1,13 +1,13 @@
-﻿<Window x:Class="OrderingGoods.PresentationLayer.OrderingGoodsWindow"
+﻿<Window x:Class="OrderingGoods.MvvmPresentationLayer.OrderingGoodsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" ResizeMode="CanMinimize" Height="511" Width="800" Closing="Window_Closing">
+        Title="OrderingGoodsWindow" Height="511" Width="800">
     <Grid>
-        <ComboBox x:Name="ComboBoxGoodChoice" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" SelectionChanged="ComboBoxGoodChoice_SelectionChanged" Width="150"/>
-        <DataGrid x:Name="DataGridAvailableGoodsList" Height="346" Margin="10,65,10,0" VerticalAlignment="Top" AutoGenerateColumns="False" CanUserDeleteRows="False" CanUserAddRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" IsSynchronizedWithCurrentItem="True" IsReadOnly="True" CanUserResizeColumns="False">
+        <ComboBox x:Name="ComboBoxGoodChoice" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="150" ItemsSource="{Binding GoodNames}" SelectedItem="{Binding SelectedGoodName}"/>
+        <DataGrid x:Name="DataGridAvailableGoodsList" Height="344" Margin="10,65,10,0" VerticalAlignment="Top" AutoGenerateColumns="False" CanUserDeleteRows="False" CanUserAddRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" IsSynchronizedWithCurrentItem="True" IsReadOnly="True" CanUserResizeColumns="False" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID товару" Binding="{Binding Path=Good.ID}" Width="75" />
                 <DataGridTextColumn Header="Магазин" Binding="{Binding Path=ShopName}" Width="100" >
@@ -41,12 +41,11 @@
                 </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="ButtonOrderGood" Content="Замовити товар" Height="48" Margin="646,12,10,0" VerticalAlignment="Top" Click="ButtonOrderGood_Click"/>
-        <Slider x:Name="SliderTerm" HorizontalAlignment="Left" Margin="421,36,0,0" VerticalAlignment="Top" Width="220" Minimum="1" Maximum="14" SmallChange="1" LargeChange="7" Value="1" TickPlacement="BottomRight" IsSnapToTickEnabled="True"/>
+        <Button x:Name="ButtonOrderGood" Content="Замовити товар" Height="48" Margin="646,12,10,0" VerticalAlignment="Top" Command="{Binding MakeOrderCommand}"/>
+        <Slider x:Name="SliderTerm" HorizontalAlignment="Left" Margin="421,36,0,0" VerticalAlignment="Top" Width="220" Minimum="1" Maximum="14" SmallChange="1" LargeChange="7" TickPlacement="BottomRight" IsSnapToTickEnabled="True" Value="{Binding Term}"/>
         <Label Content="Термін (днів):" HorizontalAlignment="Left" Margin="421,10,0,0" VerticalAlignment="Top"/>
         <Label Content="Оберіть назву товару:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Label Content="{Binding Value, ElementName=SliderTerm}" HorizontalAlignment="Left" Margin="510,10,0,0" VerticalAlignment="Top" Width="30"/>
-        <Button x:Name="ButtonViewOrders" Content=" Переглянути замовлення" Margin="288,416,287,10" Click="ButtonViewOrders_Click"/>
-
+        <Label Content="{Binding Term}" HorizontalAlignment="Left" Margin="510,10,0,0" VerticalAlignment="Top" Width="30"/>
+        <Button x:Name="ButtonViewOrders" Content=" Переглянути замовлення" Margin="288,414,287,10" Command="{Binding ViewOrdersCommand}" Height="56"/>
     </Grid>
 </Window>

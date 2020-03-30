@@ -88,14 +88,22 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Data\DataLoader.cs" />
-    <Compile Include="BusinessLayer\IOrderingGoodsModel.cs" />
+    <Compile Include="BusinessLayer\IApplicationModel.cs" />
     <Compile Include="PresentationLayer\IOrderingGoodsView.cs" />
-    <Compile Include="BusinessLayer\OrderingGoodsModel.cs" />
+    <Compile Include="BusinessLayer\ApplicationModel.cs" />
     <Compile Include="PresentationLayer\OrderingGoodsPresenter.cs" />
     <Compile Include="PresentationLayer\OrdersWindow.xaml.cs">
       <DependentUpon>OrdersWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="BusinessLayer\Shop.cs" />
+    <Compile Include="RelayCommand.cs" />
+    <Compile Include="MvvmPresentationLayer\ApplicationViewModel.cs" />
+    <Compile Include="MvvmPresentationLayer\OrderingGoodsWindow.xaml.cs">
+      <DependentUpon>OrderingGoodsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MvvmPresentationLayer\OrdersWindow.xaml.cs">
+      <DependentUpon>OrdersWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="PresentationLayer\OrderingGoodsWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -113,6 +121,14 @@
     <Page Include="PresentationLayer\OrdersWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MvvmPresentationLayer\OrderingGoodsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MvvmPresentationLayer\OrdersWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

@@ -26,7 +26,7 @@ namespace OrderingGoods.PresentationLayer
         private readonly OrderingGoodsPresenter presenter;
         private readonly OrdersWindow ordersWindow;
 
-        public OrderingGoodsWindow(OrderingGoodsModel model)
+        public OrderingGoodsWindow(BusinessLayer.IApplicationModel model)
         {
             InitializeComponent();
             presenter = new OrderingGoodsPresenter(this, model);
@@ -72,7 +72,7 @@ namespace OrderingGoods.PresentationLayer
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            new DataLoader().SerializeOrders(presenter.GetOrders());
+            new Data.DataLoader().SerializeOrders(presenter.GetOrders());
             Application.Current.Shutdown();
         }
     }

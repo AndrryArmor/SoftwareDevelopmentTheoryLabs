@@ -13,9 +13,9 @@ namespace OrderingGoods.PresentationLayer
     public class OrderingGoodsPresenter
     {
         private readonly IOrderingGoodsView view;
-        private readonly BusinessLayer.IOrderingGoodsModel model;
+        private readonly BusinessLayer.IApplicationModel model;
 
-        public OrderingGoodsPresenter(IOrderingGoodsView view, BusinessLayer.IOrderingGoodsModel model)
+        public OrderingGoodsPresenter(IOrderingGoodsView view, BusinessLayer.IApplicationModel model)
         {
             this.view = view;
             this.model = model;

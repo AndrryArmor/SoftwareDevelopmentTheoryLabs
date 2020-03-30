@@ -2,7 +2,8 @@ using System;
 using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
 using MessageBox = System.Windows.MessageBox;
-using OrderingGoods.PresentationLayer;
+using OrderingGoods.BusinessLayer;
+using Mvvm = OrderingGoods.MvvmPresentationLayer;
 
 namespace OrderingGoods
 {
@@ -11,25 +12,31 @@ namespace OrderingGoods
     /// </summary>
     public partial class App : Application
     {
-        private readonly ServiceProvider serviceProvider;
+        private readonly ServiceProvider mvvmServiceProvider;
 
         public App()
         {
-            var services = new ServiceCollection();
-            ConfigureServices(services);
-            serviceProvider = services.BuildServiceProvider(validateScopes: true);
+            var mvvmServices = new ServiceCollection();
+            ConfigureMvvmServices(mvvmServices);
+            mvvmServiceProvider = mvvmServices.BuildServiceProvider(validateScopes: true);
+
+            ShutdownMode = ShutdownMode.OnMainWindowClose;
         }
 
-        private void ConfigureServices(IServiceCollection services)
+        private void ConfigureMvvmServices(IServiceCollection services)
         {
-            services.AddSingleton<OrderingGoodsWindow, OrderingGoodsWindow>();
-            services.AddSingleton<OrderingGoodsModel, OrderingGoodsModel>();
+            services.AddSingleton<Mvvm.OrderingGoodsWindow, Mvvm.OrderingGoodsWindow>();
+            services.AddSingleton<IApplicationModel, ApplicationModel>();
+            services.AddSingleton<Mvvm.ApplicationViewModel, Mvvm.ApplicationViewModel>();
         }
 
-        private void App_OnStartup(object sender, StartupEventArgs e)
+        protected override void OnStartup(StartupEventArgs e)
         {
-            var mainWindow = serviceProvider.GetService<OrderingGoodsWindow>();
-            mainWindow.Show();
+            base.OnStartup(e);
+
+            MainWindow = mvvmServiceProvider.GetService<Mvvm.OrderingGoodsWindow>();
+            MainWindow.DataContext = mvvmServiceProvider.GetService<Mvvm.ApplicationViewModel>();
+            MainWindow.Show();
         }
 
         public static MessageBoxResult ShowMessage(string message, bool isQuestion = false)
