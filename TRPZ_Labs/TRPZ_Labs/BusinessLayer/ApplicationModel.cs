@@ -1,27 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Good = OrderingGoods.BusinessLayer.Good;
-using Shop = OrderingGoods.BusinessLayer.Shop;
-using Order = OrderingGoods.BusinessLayer.Order;
+﻿using System.Collections.Generic;
 using OrderingGoods.Data;
 
-namespace OrderingGoods.PresentationLayer
+namespace OrderingGoods.BusinessLayer
 {
-    public class OrderingGoodsModel : BusinessLayer.IOrderingGoodsModel
+    public class ApplicationModel : IApplicationModel
     {
         private readonly List<Good> goods;
         private readonly List<Shop> shops;
-        private readonly List<Order> orders;
 
-        public OrderingGoodsModel()
+        public ApplicationModel()
         {
             var dataLoader = new DataLoader();
             goods = dataLoader.LoadGoods();
             shops = dataLoader.LoadShops(GetGoods());
-            orders = dataLoader.DeserializeOrders();
         }
 
         public List<Good> GetGoods()
@@ -36,12 +27,17 @@ namespace OrderingGoods.PresentationLayer
 
         public List<Order> GetOrders()
         {
-            return orders;
+            return new DataLoader().DeserializeOrders();
         }
 
         public void AddOrder(Order order)
         {
-            orders.Add(order);
+            
+        }
+
+        public void UploadOrders(List<Order> orders)
+        {
+            new DataLoader().SerializeOrders(orders);
         }
     }
 }
