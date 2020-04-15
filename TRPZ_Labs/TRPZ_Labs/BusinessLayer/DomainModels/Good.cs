@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace OrderingGoods.BusinessLayer
+namespace OrderingGoods.BusinessLayer.DomainModels
 {
     [DataContract]
     public class Good

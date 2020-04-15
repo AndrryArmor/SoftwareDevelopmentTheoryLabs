@@ -1,16 +1,16 @@
 ﻿using System.Runtime.Serialization;
 
-namespace OrderingGoods.BusinessLayer
+namespace OrderingGoods.BusinessLayer.DomainModels
 {
     [DataContract]
     public class Item
     {
         [DataMember]
-        public Good Good { get; private set; }
+        public Good Good { get; set; }
         [DataMember]
-        public string ShopName { get; private set; }
+        public string ShopName { get; set; }
         [DataMember]
-        public float Price { get; private set; }
+        public float Price { get; set; }
 
         public Item(Good good, string shopName, float price)
         {

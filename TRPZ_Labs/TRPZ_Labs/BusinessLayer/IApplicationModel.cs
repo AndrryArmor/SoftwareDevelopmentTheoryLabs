@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using OrderingGoods.BusinessLayer.DomainModels;
+using System.Collections.Generic;
 
 namespace OrderingGoods.BusinessLayer
 {

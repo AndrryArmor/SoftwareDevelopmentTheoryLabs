@@ -7,12 +7,13 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using OrderingGoods.BusinessLayer;
+using OrderingGoods.BusinessLayer.DomainModels;
 
 namespace OrderingGoods.MvvmPresentationLayer
 {
     public class ApplicationViewModel : INotifyPropertyChanged
     {
-        private IApplicationModel model;
+        private readonly IApplicationModel model;
         private OrdersWindow ordersWindow;
         private ObservableCollection<string> goodNames;
         private ObservableCollection<Item> items;

@@ -1,8 +1,6 @@
-﻿using System.Runtime.Serialization;
-
-namespace OrderingGoods.DataAccessLayer.Entities
+﻿namespace OrderingGoods.DataAccessLayer.Entities
 {
-    public class Good : BaseEntity
+    public class GoodEntity : BaseEntity
     {
         public string Name { get; set; }
         public string Model { get; set; }

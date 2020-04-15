@@ -1,22 +1,16 @@
 ﻿using System.Collections.Generic;
+using OrderingGoods.BusinessLayer.DomainModels;
 using OrderingGoods.DataAccessLayer;
 
 namespace OrderingGoods.BusinessLayer
 {
     public class ApplicationModel : IApplicationModel
     {
-        private readonly List<Good> goods;
-        private readonly List<Shop> shops;
-
         private readonly IGoodService goodService;
 
         public ApplicationModel(IGoodService goodService)
         {
             this.goodService = goodService;
-
-            var dataLoader = new DataLoader();
-            goods = GetGoods();
-            shops = dataLoader.LoadShops(goods);
         }
 
         public List<Good> GetGoods()
@@ -26,7 +20,7 @@ namespace OrderingGoods.BusinessLayer
 
         public List<Shop> GetShops()
         {
-            return shops;
+            return new DataLoader().LoadShops(GetGoods());
         }
 
         public List<Order> GetOrders()

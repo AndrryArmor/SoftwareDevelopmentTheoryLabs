@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 using AutoMapper;
 using AutoMapper.Configuration;
+using OrderingGoods.BusinessLayer.DomainModels;
 
 namespace OrderingGoods
 {
@@ -36,16 +37,16 @@ namespace OrderingGoods
             services.AddSingleton(GetOrderingGoodsMapper());
             services.AddSingleton<IConfigurationProvider, MapperConfiguration>();
             services.AddSingleton<MapperConfigurationExpression, MapperConfigurationExpression>();
-            services.AddSingleton<IRepository<DataAccessLayer.Entities.Good>, GoodRepository>();
+            services.AddSingleton<IRepository<DataAccessLayer.Entities.GoodEntity>, GoodRepository>();
             services.AddDbContext<OrderingGoodsContext>(opt =>
-                opt.UseSqlServer("Server=localhost;Database=OrderingGoods;Trusted_Connection=True;"), ServiceLifetime.Singleton);
+                opt.UseSqlServer(ConfigurationManager.ConnectionStrings["OrderingGoodsDatabase"].ConnectionString), ServiceLifetime.Singleton);
         }
 
         private IMapper GetOrderingGoodsMapper()
         {
             var configuration = new MapperConfiguration(cfg => 
             {
-                cfg.CreateMap<DataAccessLayer.Entities.Good, Good>();
+                cfg.CreateMap<DataAccessLayer.Entities.GoodEntity, Good>();
             });
             return configuration.CreateMapper();
         }

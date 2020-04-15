@@ -1,22 +1,19 @@
 ﻿using OrderingGoods.DataAccessLayer.Entities;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrderingGoods.DataAccessLayer
 {
-    public class GoodRepository : IRepository<Good>
+    public class GoodRepository : IRepository<GoodEntity>
     {
-        private OrderingGoodsContext appContext;
+        private readonly OrderingGoodsContext appContext;
 
         public GoodRepository(OrderingGoodsContext appContext)
         {
             this.appContext = appContext;
         }
 
-        public void Create(Good item)
+        public void Create(GoodEntity item)
         {
             throw new NotImplementedException();
         }
@@ -26,17 +23,17 @@ namespace OrderingGoods.DataAccessLayer
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Good> GetAll()
+        public IEnumerable<GoodEntity> GetAll()
         {
             return appContext.Goods;
         }
 
-        public Good Read(int id)
+        public GoodEntity Read(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(Good item)
+        public void Update(GoodEntity item)
         {
             throw new NotImplementedException();
         }

@@ -1,11 +1,8 @@
-﻿using System;
+﻿using OrderingGoods.BusinessLayer.DomainModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Json;
-using Good = OrderingGoods.BusinessLayer.Good;
-using Shop = OrderingGoods.BusinessLayer.Shop;
-using Item = OrderingGoods.BusinessLayer.Item;
-using Order = OrderingGoods.BusinessLayer.Order;
 
 namespace OrderingGoods.DataAccessLayer
 {

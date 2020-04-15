@@ -1,10 +1,9 @@
 ﻿using AutoMapper;
+using OrderingGoods.BusinessLayer.DomainModels;
 using OrderingGoods.DataAccessLayer;
-using System;
+using OrderingGoods.DataAccessLayer.Entities;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrderingGoods.BusinessLayer
 {
@@ -21,7 +20,7 @@ namespace OrderingGoods.BusinessLayer
 
         public IEnumerable<Good> GetAllGoods()
         {
-            return unitOfWork.GoodRepository.GetAll().Select(good => mapper.Map<DataAccessLayer.Entities.Good, Good>(good));
+            return unitOfWork.GoodRepository.GetAll().Select(good => mapper.Map<GoodEntity, Good>(good));
         }
     }
 }

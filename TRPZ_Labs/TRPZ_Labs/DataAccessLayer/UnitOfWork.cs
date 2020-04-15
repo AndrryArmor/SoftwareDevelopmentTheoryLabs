@@ -1,19 +1,14 @@
 ﻿using OrderingGoods.DataAccessLayer.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrderingGoods.DataAccessLayer
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private OrderingGoodsContext appContext;
+        private readonly OrderingGoodsContext appContext;
 
-        public IRepository<Good> GoodRepository { get; }
+        public IRepository<GoodEntity> GoodRepository { get; }
 
-        public UnitOfWork(OrderingGoodsContext appContext, IRepository<Good> goodRepository)
+        public UnitOfWork(OrderingGoodsContext appContext, IRepository<GoodEntity> goodRepository)
         {
             this.appContext = appContext;
             GoodRepository = goodRepository; 

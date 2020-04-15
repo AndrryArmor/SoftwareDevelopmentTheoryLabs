@@ -1,21 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OrderingGoods.DataAccessLayer.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrderingGoods.DataAccessLayer
 {
     public class OrderingGoodsContext : DbContext
     {
-        public DbSet<Good> Goods { get; set; }
-        public DbSet<Shop> Shops { get; set; }
-        public DbSet<Item> Items { get; set; }
-        public DbSet<Order> Orders { get; set; }
+        public DbSet<GoodEntity> Goods { get; set; }
+        public DbSet<ShopEntity> Shops { get; set; }
+        public DbSet<ItemEntity> Items { get; set; }
+        public DbSet<OrderEntity> Orders { get; set; }
 
-        public OrderingGoodsContext(DbContextOptions<OrderingGoodsContext> optionsBuilder) : base(optionsBuilder)
+        public OrderingGoodsContext(DbContextOptions<OrderingGoodsContext> options) : base(options)
         {
             Database.EnsureCreated();
         }
