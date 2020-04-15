@@ -8,8 +8,12 @@ namespace OrderingGoods.BusinessLayer
         private readonly List<Good> goods;
         private readonly List<Shop> shops;
 
-        public ApplicationModel()
+        private readonly IGoodService goodService;
+
+        public ApplicationModel(IGoodService goodService)
         {
+            this.goodService = goodService;
+
             var dataLoader = new DataLoader();
             goods = dataLoader.LoadGoods();
             shops = dataLoader.LoadShops(GetGoods());
@@ -17,7 +21,8 @@ namespace OrderingGoods.BusinessLayer
 
         public List<Good> GetGoods()
         {
-            return goods;
+            //return goods;
+            return new List<Good>(goodService.GetAllGoods());
         }
 
         public List<Shop> GetShops()

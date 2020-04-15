@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OrderingGoods.DataAccessLayer.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,12 +10,13 @@ namespace OrderingGoods.DataAccessLayer
     public class UnitOfWork : IUnitOfWork
     {
         private OrderingGoodsContext appContext;
-        public OrderRepository OrderRepository { get; }
 
-        public UnitOfWork(OrderingGoodsContext appContext, OrderRepository orderRepository)
+        public IRepository<Good> GoodRepository { get; }
+
+        public UnitOfWork(OrderingGoodsContext appContext, IRepository<Good> goodRepository)
         {
             this.appContext = appContext;
-            OrderRepository = orderRepository;
+            GoodRepository = goodRepository; 
         }
 
         public void Save()

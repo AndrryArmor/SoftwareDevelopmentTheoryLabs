@@ -144,6 +144,7 @@
     </Reference>
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Console, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Console.4.3.0\lib\net46\System.Console.dll</HintPath>
       <Private>True</Private>
@@ -303,7 +304,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BusinessLayer\OrderService.cs" />
+    <Compile Include="BusinessLayer\IGoodService.cs" />
+    <Compile Include="BusinessLayer\GoodService.cs" />
     <Compile Include="DataAccessLayer\OrderingGoodsContext.cs" />
     <Compile Include="DataAccessLayer\DataLoader.cs" />
     <Compile Include="BusinessLayer\IApplicationModel.cs" />
@@ -314,7 +316,7 @@
     <Compile Include="DataAccessLayer\Entities\Shop.cs" />
     <Compile Include="DataAccessLayer\IRepository.cs" />
     <Compile Include="DataAccessLayer\IUnitOfWork.cs" />
-    <Compile Include="DataAccessLayer\OrderRepository.cs" />
+    <Compile Include="DataAccessLayer\GoodRepository.cs" />
     <Compile Include="DataAccessLayer\UnitOfWork.cs" />
     <Compile Include="PresentationLayer\IOrderingGoodsView.cs" />
     <Compile Include="BusinessLayer\ApplicationModel.cs" />

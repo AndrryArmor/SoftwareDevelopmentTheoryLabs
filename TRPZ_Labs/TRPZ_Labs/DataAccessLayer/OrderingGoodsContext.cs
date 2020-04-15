@@ -15,6 +15,9 @@ namespace OrderingGoods.DataAccessLayer
         public DbSet<Item> Items { get; set; }
         public DbSet<Order> Orders { get; set; }
 
-        public OrderingGoodsContext() { }
+        public OrderingGoodsContext() : base()
+        {
+            Database.EnsureCreated();
+        }
     }
 }

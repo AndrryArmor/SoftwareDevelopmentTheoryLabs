@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace OrderingGoods.DataAccessLayer
 {
-    public class OrderRepository : IRepository<Order>
+    public class GoodRepository : IRepository<Good>
     {
         private OrderingGoodsContext appContext;
 
-        public OrderRepository(OrderingGoodsContext appContext)
+        public GoodRepository(OrderingGoodsContext appContext)
         {
             this.appContext = appContext;
         }
 
-        public void Create(Order item)
+        public void Create(Good item)
         {
             throw new NotImplementedException();
         }
@@ -26,17 +26,17 @@ namespace OrderingGoods.DataAccessLayer
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Order> GetAll()
+        public IEnumerable<Good> GetAll()
+        {
+            return appContext.Goods;
+        }
+
+        public Good Read(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Order Read(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(Order item)
+        public void Update(Good item)
         {
             throw new NotImplementedException();
         }

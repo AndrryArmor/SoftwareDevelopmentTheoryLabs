@@ -6,15 +6,15 @@ namespace OrderingGoods.BusinessLayer
     public class Good
     {
         [DataMember]
-        public int ID { get; private set; }
+        public int ID { get; set; }
         [DataMember]
-        public string Name { get; private set; }
+        public string Name { get; set; }
         [DataMember]
-        public string Model { get; private set; }
+        public string Model { get; set; }
         [DataMember]
-        public string Manufacturer { get; private set; }
+        public string Manufacturer { get; set; }
         [DataMember]
-        public string Description { get; private set; }
+        public string Description { get; set; }
 
         public Good(int id, string name, string model, string manufacturer, string description)
         {
