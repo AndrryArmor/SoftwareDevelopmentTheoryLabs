@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 using OrderingGoods.BusinessLayer.DomainModels;
 using OrderingGoods;
 
-namespace OrderingGoods.MvvmPresentationLayer
+namespace OrderingGoods.PresentationLayer
 {
     /// <summary>
     /// Interaction logic for OrdersWindow.xaml

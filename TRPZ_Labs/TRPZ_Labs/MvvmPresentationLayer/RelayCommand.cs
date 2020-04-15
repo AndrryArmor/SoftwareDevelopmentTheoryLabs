@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace OrderingGoods.MvvmPresentationLayer
+namespace OrderingGoods.PresentationLayer
 {
     public class RelayCommand : ICommand
     {

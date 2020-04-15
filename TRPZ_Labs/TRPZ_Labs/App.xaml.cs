@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MessageBox = System.Windows.MessageBox;
 using OrderingGoods.BusinessLayer;
 using OrderingGoods.DataAccessLayer;
-using Mvvm = OrderingGoods.MvvmPresentationLayer;
+using OrderingGoods.PresentationLayer;
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 using AutoMapper;
@@ -18,13 +18,13 @@ namespace OrderingGoods
     /// </summary>
     public partial class App : Application
     {
-        private readonly ServiceProvider mvvmServiceProvider;
+        private readonly ServiceProvider serviceProvider;
 
         public App()
         {
             var mvvmServices = new ServiceCollection();
             ConfigureMvvmServices(mvvmServices);
-            mvvmServiceProvider = mvvmServices.BuildServiceProvider(validateScopes: true);
+            serviceProvider = mvvmServices.BuildServiceProvider(validateScopes: true);
 
             ShutdownMode = ShutdownMode.OnMainWindowClose;
         }
@@ -55,8 +55,8 @@ namespace OrderingGoods
         {
             base.OnStartup(e);
 
-            var viewModel = new Mvvm.ApplicationViewModel(mvvmServiceProvider.GetService<IApplicationModel>());
-            MainWindow = new Mvvm.OrderingGoodsWindow() { DataContext = viewModel};
+            var viewModel = new ApplicationViewModel(serviceProvider.GetService<IApplicationModel>());
+            MainWindow = new OrderingGoodsWindow() { DataContext = viewModel};
             MainWindow.Show();
         }
 

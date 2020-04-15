@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using OrderingGoods.BusinessLayer;
 using OrderingGoods.BusinessLayer.DomainModels;
 
-namespace OrderingGoods.MvvmPresentationLayer
+namespace OrderingGoods.PresentationLayer
 {
     public class ApplicationViewModel : INotifyPropertyChanged
     {
