@@ -15,13 +15,12 @@ namespace OrderingGoods.BusinessLayer
             this.goodService = goodService;
 
             var dataLoader = new DataLoader();
-            goods = dataLoader.LoadGoods();
-            shops = dataLoader.LoadShops(GetGoods());
+            goods = GetGoods();
+            shops = dataLoader.LoadShops(goods);
         }
 
         public List<Good> GetGoods()
         {
-            //return goods;
             return new List<Good>(goodService.GetAllGoods());
         }
 
