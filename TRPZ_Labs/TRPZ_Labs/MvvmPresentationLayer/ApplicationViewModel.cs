@@ -112,6 +112,7 @@ namespace OrderingGoods.MvvmPresentationLayer
         {
             this.model = model;
             GoodNames = new ObservableCollection<string>(model.GetGoods().Select(good => good.Name).ToHashSet());
+            var goods = model.GetGoods();
             Orders = new ObservableCollection<Order>(model.GetOrders());
         }
 

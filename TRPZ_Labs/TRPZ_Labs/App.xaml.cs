@@ -3,7 +3,12 @@ using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
 using MessageBox = System.Windows.MessageBox;
 using OrderingGoods.BusinessLayer;
+using OrderingGoods.DataAccessLayer;
 using Mvvm = OrderingGoods.MvvmPresentationLayer;
+using Microsoft.EntityFrameworkCore;
+using System.Configuration;
+using AutoMapper;
+using AutoMapper.Configuration;
 
 namespace OrderingGoods
 {
@@ -25,17 +30,32 @@ namespace OrderingGoods
 
         private void ConfigureMvvmServices(IServiceCollection services)
         {
-            services.AddSingleton<Mvvm.OrderingGoodsWindow, Mvvm.OrderingGoodsWindow>();
             services.AddSingleton<IApplicationModel, ApplicationModel>();
-            services.AddSingleton<Mvvm.ApplicationViewModel, Mvvm.ApplicationViewModel>();
+            services.AddSingleton<IGoodService, GoodService>();
+            services.AddSingleton<IUnitOfWork, UnitOfWork>();
+            services.AddSingleton(GetOrderingGoodsMapper());
+            services.AddSingleton<IConfigurationProvider, MapperConfiguration>();
+            services.AddSingleton<MapperConfigurationExpression, MapperConfigurationExpression>();
+            services.AddSingleton<IRepository<DataAccessLayer.Entities.Good>, GoodRepository>();
+            services.AddDbContext<OrderingGoodsContext>(opt =>
+                opt.UseSqlServer("Server=localhost;Database=OrderingGoods;Trusted_Connection=True;"), ServiceLifetime.Singleton);
+        }
+
+        private IMapper GetOrderingGoodsMapper()
+        {
+            var configuration = new MapperConfiguration(cfg => 
+            {
+                cfg.CreateMap<DataAccessLayer.Entities.Good, Good>();
+            });
+            return configuration.CreateMapper();
         }
 
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
-            MainWindow = mvvmServiceProvider.GetService<Mvvm.OrderingGoodsWindow>();
-            MainWindow.DataContext = mvvmServiceProvider.GetService<Mvvm.ApplicationViewModel>();
+            var viewModel = new Mvvm.ApplicationViewModel(mvvmServiceProvider.GetService<IApplicationModel>());
+            MainWindow = new Mvvm.OrderingGoodsWindow() { DataContext = viewModel};
             MainWindow.Show();
         }
 
