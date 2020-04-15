@@ -7,7 +7,7 @@ using Shop = OrderingGoods.BusinessLayer.Shop;
 using Item = OrderingGoods.BusinessLayer.Item;
 using Order = OrderingGoods.BusinessLayer.Order;
 
-namespace OrderingGoods.Data
+namespace OrderingGoods.DataAccessLayer
 {
     public class DataLoader
     {

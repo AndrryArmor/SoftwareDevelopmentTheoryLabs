@@ -72,7 +72,7 @@ namespace OrderingGoods.PresentationLayer
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            new Data.DataLoader().SerializeOrders(presenter.GetOrders());
+            new DataAccessLayer.DataLoader().SerializeOrders(presenter.GetOrders());
             Application.Current.Shutdown();
         }
     }

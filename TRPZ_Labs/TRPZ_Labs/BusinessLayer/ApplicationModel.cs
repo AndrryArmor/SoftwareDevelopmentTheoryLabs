@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using OrderingGoods.Data;
+using OrderingGoods.DataAccessLayer;
 
 namespace OrderingGoods.BusinessLayer
 {
