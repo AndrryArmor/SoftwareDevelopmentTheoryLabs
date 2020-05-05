@@ -103,7 +103,7 @@ namespace OrderingGoods.PresentationLayer
                 return viewOrdersCommand ?? (viewOrdersCommand = new RelayCommand(obj =>
                     {
                         ordersWindow = ordersWindow ?? new OrdersWindow();
-                        ordersWindow.DataGridOrders.ItemsSource = orders;
+                        ordersWindow.DataGridOrders.ItemsSource = Orders;
                         ordersWindow.Show();
                     }));
             }

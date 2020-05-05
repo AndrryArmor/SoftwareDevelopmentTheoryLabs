@@ -289,19 +289,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BusinessLayer\IGoodService.cs" />
-    <Compile Include="BusinessLayer\GoodService.cs" />
+    <Compile Include="BusinessLayer\Interfaces\IShopService.cs" />
+    <Compile Include="BusinessLayer\Interfaces\IGoodService.cs" />
+    <Compile Include="BusinessLayer\Interfaces\IOrderService.cs" />
+    <Compile Include="BusinessLayer\Services\ShopService.cs" />
+    <Compile Include="BusinessLayer\Services\OrderService.cs" />
+    <Compile Include="BusinessLayer\Services\GoodService.cs" />
+    <Compile Include="DataAccessLayer\Interfaces\IShopRepository.cs" />
+    <Compile Include="DataAccessLayer\Interfaces\IOrderRepository.cs" />
+    <Compile Include="DataAccessLayer\Interfaces\IGoodRepository.cs" />
     <Compile Include="DataAccessLayer\OrderingGoodsContext.cs" />
     <Compile Include="DataAccessLayer\DataLoader.cs" />
     <Compile Include="BusinessLayer\IApplicationModel.cs" />
-    <Compile Include="DataAccessLayer\Entities\BaseEntity.cs" />
     <Compile Include="DataAccessLayer\Entities\GoodEntity.cs" />
     <Compile Include="DataAccessLayer\Entities\ItemEntity.cs" />
     <Compile Include="DataAccessLayer\Entities\OrderEntity.cs" />
     <Compile Include="DataAccessLayer\Entities\ShopEntity.cs" />
-    <Compile Include="DataAccessLayer\IRepository.cs" />
+    <Compile Include="DataAccessLayer\Interfaces\IRepository.cs" />
     <Compile Include="DataAccessLayer\IUnitOfWork.cs" />
-    <Compile Include="DataAccessLayer\GoodRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\ShopRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\OrderRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\GoodRepository.cs" />
     <Compile Include="DataAccessLayer\UnitOfWork.cs" />
     <Compile Include="BusinessLayer\ApplicationModel.cs" />
     <Compile Include="BusinessLayer\DomainModels\Shop.cs" />
@@ -370,6 +378,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

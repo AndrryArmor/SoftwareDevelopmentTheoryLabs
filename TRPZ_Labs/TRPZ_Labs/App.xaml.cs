@@ -32,14 +32,14 @@ namespace OrderingGoods
         private void ConfigureMvvmServices(IServiceCollection services)
         {
             services.AddSingleton<IApplicationModel, ApplicationModel>();
-            services.AddSingleton<IGoodService, GoodService>();
-            services.AddSingleton<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<IGoodService, GoodService>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddSingleton(GetOrderingGoodsMapper());
             services.AddSingleton<IConfigurationProvider, MapperConfiguration>();
             services.AddSingleton<MapperConfigurationExpression, MapperConfigurationExpression>();
-            services.AddSingleton<IRepository<DataAccessLayer.Entities.GoodEntity>, GoodRepository>();
+            services.AddSingleton<IGoodRepository, GoodRepository>();
             services.AddDbContext<OrderingGoodsContext>(opt =>
-                opt.UseSqlServer(ConfigurationManager.ConnectionStrings["OrderingGoodsDatabase"].ConnectionString), ServiceLifetime.Singleton);
+                opt.UseSqlServer(ConfigurationManager.ConnectionStrings["OrderingGoodsDatabase"].ConnectionString));
         }
 
         private IMapper GetOrderingGoodsMapper()

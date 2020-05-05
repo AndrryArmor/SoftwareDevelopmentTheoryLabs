@@ -8,13 +8,13 @@ namespace OrderingGoods.BusinessLayer.DomainModels
 
         public string Name { get; set; }
 
-        public Shop(string name, List<Item> items)
+        public Shop(string name, IEnumerable<Item> items)
         {
             Name = name;
-            this.items = items;
+            this.items = new List<Item>(items);
         }
 
-        public List<Item> GetItems()
+        public IEnumerable<Item> GetItems()
         {
             return items;
         }
