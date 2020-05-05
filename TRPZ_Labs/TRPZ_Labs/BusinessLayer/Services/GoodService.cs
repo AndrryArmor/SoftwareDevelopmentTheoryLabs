@@ -5,7 +5,7 @@ using OrderingGoods.DataAccessLayer.Entities;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace OrderingGoods.BusinessLayer
+namespace OrderingGoods.BusinessLayer.Services
 {
     public class GoodService : IGoodService
     {

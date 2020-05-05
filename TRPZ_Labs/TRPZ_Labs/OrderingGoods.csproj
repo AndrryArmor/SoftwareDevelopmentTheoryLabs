@@ -289,9 +289,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BusinessLayer\Interfaces\IShopService.cs" />
-    <Compile Include="BusinessLayer\Interfaces\IGoodService.cs" />
-    <Compile Include="BusinessLayer\Interfaces\IOrderService.cs" />
+    <Compile Include="BusinessLayer\Services\Interfaces\IShopService.cs" />
+    <Compile Include="BusinessLayer\Services\Interfaces\IGoodService.cs" />
+    <Compile Include="BusinessLayer\Services\Interfaces\IOrderService.cs" />
     <Compile Include="BusinessLayer\Services\ShopService.cs" />
     <Compile Include="BusinessLayer\Services\OrderService.cs" />
     <Compile Include="BusinessLayer\Services\GoodService.cs" />
@@ -302,15 +302,15 @@
     <Compile Include="DataAccessLayer\Entities\ShopEntity.cs" />
     <Compile Include="DataAccessLayer\Interfaces\IRepository.cs" />
     <Compile Include="DataAccessLayer\Interfaces\IUnitOfWork.cs" />
-    <Compile Include="DataAccessLayer\Repositories\Repository.cs" />
+    <Compile Include="DataAccessLayer\Repository.cs" />
     <Compile Include="DataAccessLayer\UnitOfWork.cs" />
     <Compile Include="BusinessLayer\DomainModels\Shop.cs" />
-    <Compile Include="MvvmPresentationLayer\RelayCommand.cs" />
-    <Compile Include="MvvmPresentationLayer\ApplicationViewModel.cs" />
-    <Compile Include="MvvmPresentationLayer\OrderingGoodsWindow.xaml.cs">
+    <Compile Include="PresentationLayer\RelayCommand.cs" />
+    <Compile Include="PresentationLayer\ApplicationViewModel.cs" />
+    <Compile Include="PresentationLayer\OrderingGoodsWindow.xaml.cs">
       <DependentUpon>OrderingGoodsWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MvvmPresentationLayer\OrdersWindow.xaml.cs">
+    <Compile Include="PresentationLayer\OrdersWindow.xaml.cs">
       <DependentUpon>OrdersWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
@@ -319,11 +319,11 @@
     </Compile>
     <Compile Include="BusinessLayer\DomainModels\Good.cs" />
     <Compile Include="BusinessLayer\DomainModels\Item.cs" />
-    <Page Include="MvvmPresentationLayer\OrderingGoodsWindow.xaml">
+    <Page Include="PresentationLayer\OrderingGoodsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MvvmPresentationLayer\OrdersWindow.xaml">
+    <Page Include="PresentationLayer\OrdersWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
