@@ -12,6 +12,7 @@ namespace OrderingGoods.DataAccessLayer
 
         public OrderingGoodsContext(DbContextOptions options) : base(options)
         {
+            Database.EnsureDeleted();
             Database.EnsureCreated();
         }
     }

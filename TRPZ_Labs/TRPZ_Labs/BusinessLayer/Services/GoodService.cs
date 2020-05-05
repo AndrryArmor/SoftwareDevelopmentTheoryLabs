@@ -18,9 +18,10 @@ namespace OrderingGoods.BusinessLayer
             this.mapper = mapper;
         }
 
-        public IEnumerable<Good> GetAllGoods()
+        public IEnumerable<string> GetAllGoodNames()
         {
-            return unitOfWork.GoodRepository.GetAll().Select(good => mapper.Map<GoodEntity, Good>(good));
+            IEnumerable<Good> goods = unitOfWork.GoodRepository.GetAll().Select(good => mapper.Map<GoodEntity, Good>(good));
+            return goods.Select(good => good.Name).ToHashSet();
         }
     }
 }
