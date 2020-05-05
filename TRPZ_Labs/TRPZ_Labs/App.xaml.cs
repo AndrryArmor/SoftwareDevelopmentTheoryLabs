@@ -10,6 +10,7 @@ using System.Configuration;
 using AutoMapper;
 using AutoMapper.Configuration;
 using OrderingGoods.BusinessLayer.DomainModels;
+using OrderingGoods.BusinessLayer.Services;
 
 namespace OrderingGoods
 {
@@ -22,17 +23,18 @@ namespace OrderingGoods
 
         public App()
         {
-            var mvvmServices = new ServiceCollection();
-            ConfigureMvvmServices(mvvmServices);
-            serviceProvider = mvvmServices.BuildServiceProvider(validateScopes: true);
+            var services = new ServiceCollection();
+            ConfigureServices(services);
+            serviceProvider = services.BuildServiceProvider(validateScopes: true);
 
             ShutdownMode = ShutdownMode.OnMainWindowClose;
         }
 
-        private void ConfigureMvvmServices(IServiceCollection services)
+        private void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IApplicationModel, ApplicationModel>();
             services.AddTransient<IGoodService, GoodService>();
+            services.AddTransient<IOrderService, OrderService>();
+            services.AddTransient<IShopService, ShopService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddSingleton(GetOrderingGoodsMapper());
             services.AddSingleton<IConfigurationProvider, MapperConfiguration>();
@@ -54,7 +56,8 @@ namespace OrderingGoods
         {
             base.OnStartup(e);
 
-            var viewModel = new ApplicationViewModel(serviceProvider.GetService<IApplicationModel>());
+            var viewModel = new ApplicationViewModel(serviceProvider.GetService<IGoodService>(),
+                serviceProvider.GetService<IOrderService>(), serviceProvider.GetService<IShopService>());
             MainWindow = new OrderingGoodsWindow() { DataContext = viewModel};
             MainWindow.Show();
         }
