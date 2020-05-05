@@ -37,7 +37,6 @@ namespace OrderingGoods
             services.AddSingleton(GetOrderingGoodsMapper());
             services.AddSingleton<IConfigurationProvider, MapperConfiguration>();
             services.AddSingleton<MapperConfigurationExpression, MapperConfigurationExpression>();
-            services.AddSingleton<IGoodRepository, GoodRepository>();
             services.AddDbContext<OrderingGoodsContext>(opt =>
                 opt.UseSqlServer(ConfigurationManager.ConnectionStrings["OrderingGoodsDatabase"].ConnectionString));
         }

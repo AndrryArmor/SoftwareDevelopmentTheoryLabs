@@ -13,7 +13,9 @@ namespace OrderingGoods.PresentationLayer
 {
     public class ApplicationViewModel : INotifyPropertyChanged
     {
-        private readonly IApplicationModel model;
+        private readonly IGoodService goodService;
+        private readonly IOrderService orderService;
+        private readonly IShopService shopService;
         private OrdersWindow ordersWindow;
         private ObservableCollection<string> goodNames;
         private ObservableCollection<Item> items;
@@ -58,9 +60,7 @@ namespace OrderingGoods.PresentationLayer
                 selectedGoodName = value;
                 OnPropertyChanged("SelectedGoodName");
 
-                List<Item> shopItems = model.GetShops().SelectMany(shop => shop.GetItems()).ToList();
-                shopItems.RemoveAll(shopItem => shopItem.Good.Name != SelectedGoodName);
-                Items = new ObservableCollection<Item>(shopItems);
+                Items = Items ?? new ObservableCollection<Item>(shopService.GetItemsFromShops(selectedGoodName));
             }
         }
         public Item SelectedItem 
@@ -109,17 +109,18 @@ namespace OrderingGoods.PresentationLayer
             }
         }
 
-        public ApplicationViewModel(IApplicationModel model)
+        public ApplicationViewModel(IGoodService goodService, IOrderService orderService, IShopService shopService)
         {
-            this.model = model;
-            GoodNames = new ObservableCollection<string>(model.GetGoods().Select(good => good.Name).ToHashSet());
-            var goods = model.GetGoods();
-            Orders = new ObservableCollection<Order>(model.GetOrders());
+            this.goodService = goodService;
+            this.orderService = orderService;
+            this.shopService = shopService;
+            GoodNames = new ObservableCollection<string>(goodService.GetAllGoodNames());
+            Orders = new ObservableCollection<Order>(orderService.GetAllOrders());
         }
 
         ~ApplicationViewModel()
         {
-            model.UploadOrders(Orders.ToList());
+            orderService.SaveOrders(Orders);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
