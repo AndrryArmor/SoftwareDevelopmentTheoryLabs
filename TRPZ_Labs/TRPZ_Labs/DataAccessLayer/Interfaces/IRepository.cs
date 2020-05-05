@@ -2,12 +2,12 @@
 
 namespace OrderingGoods.DataAccessLayer
 {
-    public interface IRepository<T> where T : class
+    public interface IRepository<TEntity> where TEntity : class
     {
-        void Create(T item);
-        T Read(int id);
-        void Update(T item);
+        void Create(TEntity item);
+        TEntity Read(int id);
+        void Update(TEntity item);
         void Delete(int id);
-        IEnumerable<T> GetAll();
+        IEnumerable<TEntity> GetAll();
     }
 }
