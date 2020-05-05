@@ -4,8 +4,10 @@ namespace OrderingGoods.DataAccessLayer
 {
     public interface IUnitOfWork
     {
-        IRepository<GoodEntity> GoodRepository { get; }
+        IGoodRepository GoodRepository { get; }
+        IOrderRepository OrderRepository { get; }
+        IShopRepository ShopRepository { get; }
 
-        void Save();
+        void SaveChanges();
     }
 }

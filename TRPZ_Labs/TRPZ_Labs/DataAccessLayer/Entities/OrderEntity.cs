@@ -1,10 +1,14 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace OrderingGoods.DataAccessLayer.Entities
 {
-    public class OrderEntity : BaseEntity
+    public class OrderEntity
     {
-        public int Item { get; set; }
+        [Key]
+        public int ID { get; set; }
+        public ItemEntity Item { get; set; }
+        public ShopEntity Shop { get; set; }
         public DateTime Date { get; set; }
         public int Term { get; set; }
     }

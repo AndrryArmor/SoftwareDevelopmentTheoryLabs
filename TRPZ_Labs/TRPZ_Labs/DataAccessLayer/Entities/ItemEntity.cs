@@ -1,9 +1,12 @@
-﻿namespace OrderingGoods.DataAccessLayer.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace OrderingGoods.DataAccessLayer.Entities
 {
-    public class ItemEntity : BaseEntity
+    public class ItemEntity
     {
-        public int Good { get; set; }
-        public int Shop { get; set; }
+        [Key]
+        public int ID {get; set;}
+        public GoodEntity Good { get; set; }
         public double Price { get; set; }
     }
 }

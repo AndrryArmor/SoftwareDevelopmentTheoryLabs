@@ -6,15 +6,20 @@ namespace OrderingGoods.DataAccessLayer
     {
         private readonly OrderingGoodsContext appContext;
 
-        public IRepository<GoodEntity> GoodRepository { get; }
+        public IGoodRepository GoodRepository { get; }
+        public IOrderRepository OrderRepository { get; }
+        public IShopRepository ShopRepository { get; }
 
-        public UnitOfWork(OrderingGoodsContext appContext, IRepository<GoodEntity> goodRepository)
+        public UnitOfWork(OrderingGoodsContext appContext, IGoodRepository goodRepository, 
+            IOrderRepository orderRepository, IShopRepository shopRepository)
         {
             this.appContext = appContext;
-            GoodRepository = goodRepository; 
+            GoodRepository = goodRepository;
+            OrderRepository = orderRepository;
+            ShopRepository = shopRepository;
         }
 
-        public void Save()
+        public void SaveChanges()
         {
             appContext.SaveChanges();
         }

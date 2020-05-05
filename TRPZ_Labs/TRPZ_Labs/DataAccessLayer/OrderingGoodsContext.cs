@@ -10,7 +10,7 @@ namespace OrderingGoods.DataAccessLayer
         public DbSet<ItemEntity> Items { get; set; }
         public DbSet<OrderEntity> Orders { get; set; }
 
-        public OrderingGoodsContext(DbContextOptions<OrderingGoodsContext> options) : base(options)
+        public OrderingGoodsContext(DbContextOptions options) : base(options)
         {
             Database.EnsureCreated();
         }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace OrderingGoods.DataAccessLayer
 {
-    public class GoodRepository : IRepository<GoodEntity>
+    public class GoodRepository : IGoodRepository
     {
         private readonly OrderingGoodsContext appContext;
 
@@ -15,12 +15,12 @@ namespace OrderingGoods.DataAccessLayer
 
         public void Create(GoodEntity item)
         {
-            throw new NotImplementedException();
+            appContext.Goods.Add(item);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            appContext.Goods.Remove(appContext.Goods.Find(id));
         }
 
         public IEnumerable<GoodEntity> GetAll()
@@ -30,12 +30,12 @@ namespace OrderingGoods.DataAccessLayer
 
         public GoodEntity Read(int id)
         {
-            throw new NotImplementedException();
+            return appContext.Goods.Find(id);
         }
 
         public void Update(GoodEntity item)
         {
-            throw new NotImplementedException();
+            appContext.Goods.Update(item);
         }
     }
 }
