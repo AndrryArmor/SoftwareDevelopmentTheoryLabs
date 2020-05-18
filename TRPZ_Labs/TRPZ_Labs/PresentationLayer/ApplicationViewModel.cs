@@ -16,7 +16,7 @@ namespace OrderingGoods.PresentationLayer
     {
         private readonly IGoodService goodService;
         private readonly IOrderService orderService;
-        private readonly IShopService shopService;
+        private readonly IItemService itemService;
         private OrdersWindow ordersWindow;
         private ObservableCollection<string> goodNames;
         private ObservableCollection<Item> items;
@@ -61,7 +61,7 @@ namespace OrderingGoods.PresentationLayer
                 selectedGoodName = value;
                 OnPropertyChanged("SelectedGoodName");
 
-                Items = Items ?? new ObservableCollection<Item>(shopService.GetItemsFromShops(selectedGoodName));
+                Items = Items ?? new ObservableCollection<Item>(itemService.GetItems(selectedGoodName));
             }
         }
         public Item SelectedItem 
@@ -110,11 +110,11 @@ namespace OrderingGoods.PresentationLayer
             }
         }
 
-        public ApplicationViewModel(IGoodService goodService, IOrderService orderService, IShopService shopService)
+        public ApplicationViewModel(IGoodService goodService, IOrderService orderService, IItemService itemService)
         {
             this.goodService = goodService;
             this.orderService = orderService;
-            this.shopService = shopService;
+            this.itemService = itemService;
             GoodNames = new ObservableCollection<string>(goodService.GetAllGoodNames());
             Orders = new ObservableCollection<Order>(orderService.GetAllOrders());
         }
