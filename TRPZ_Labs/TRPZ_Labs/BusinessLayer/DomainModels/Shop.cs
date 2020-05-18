@@ -4,19 +4,14 @@ namespace OrderingGoods.BusinessLayer.DomainModels
 {
     public class Shop
     {
-        private readonly List<Item> items;
-
+        public List<Item> Items { get; set; }
         public string Name { get; set; }
 
+        public Shop() { }
         public Shop(string name, IEnumerable<Item> items)
         {
             Name = name;
-            this.items = new List<Item>(items);
-        }
-
-        public IEnumerable<Item> GetItems()
-        {
-            return items;
+            Items = new List<Item>(items);
         }
     }
 }

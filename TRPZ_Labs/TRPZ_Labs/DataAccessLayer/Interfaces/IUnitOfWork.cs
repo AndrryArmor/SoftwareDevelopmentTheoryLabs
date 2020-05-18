@@ -6,7 +6,7 @@ namespace OrderingGoods.DataAccessLayer
     {
         IRepository<GoodEntity> GoodRepository { get; }
         IRepository<OrderEntity> OrderRepository { get; }
-        IRepository<ShopEntity> ShopRepository { get; }
+        IRepository<ItemEntity> ItemRepository { get; }
 
         void SaveChanges();
     }

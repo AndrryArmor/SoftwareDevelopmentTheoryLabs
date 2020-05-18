@@ -2,20 +2,17 @@
 
 namespace OrderingGoods.BusinessLayer.DomainModels
 {
-    [DataContract]
     public class Item
     {
-        [DataMember]
         public Good Good { get; set; }
-        [DataMember]
-        public string ShopName { get; set; }
-        [DataMember]
-        public float Price { get; set; }
+        public Shop Shop { get; set; }
+        public double Price { get; set; }
 
-        public Item(Good good, string shopName, float price)
+        public Item() { }
+        public Item(Good good, Shop shop, float price)
         {
             Good = good;
-            ShopName = shopName;
+            Shop = shop;
             Price = price;
         }
     }

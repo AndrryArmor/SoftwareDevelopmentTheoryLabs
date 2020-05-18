@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 namespace OrderingGoods.BusinessLayer.Services
 {
-    public interface IShopService
+    public interface IItemService
     {
-        IEnumerable<Item> GetItemsFromShops(string goodName);
+        IEnumerable<Item> GetItems(string goodName);
     }
 }

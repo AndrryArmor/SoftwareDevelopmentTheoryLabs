@@ -30,7 +30,7 @@ namespace OrderingGoods.PresentationLayer
         {
             Item selectedItem = ((Order)DataGridOrders.SelectedItem).Item;
             TextBlockGoodID.Text = selectedItem.Good.ID.ToString();
-            TextBlockShopName.Text = selectedItem.ShopName;
+            TextBlockShopName.Text = selectedItem.Shop.Name;
             TextBlockModel.Text = selectedItem.Good.Model;
             TextBlockManufacturer.Text = selectedItem.Good.Manufacturer;
             TextBlockDescription.Text = selectedItem.Good.Description;
