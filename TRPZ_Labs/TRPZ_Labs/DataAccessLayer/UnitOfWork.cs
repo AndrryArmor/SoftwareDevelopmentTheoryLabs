@@ -8,14 +8,15 @@ namespace OrderingGoods.DataAccessLayer
 
         public IRepository<GoodEntity> GoodRepository { get; }
         public IRepository<OrderEntity> OrderRepository { get; }
-        public IRepository<ShopEntity> ShopRepository { get; }
+        public IRepository<ItemEntity> ItemRepository { get; }
 
-        public UnitOfWork(OrderingGoodsContext appContext)
+        public UnitOfWork(OrderingGoodsContext appContext, IRepository<GoodEntity> goodRepository,
+            IRepository<OrderEntity> orderRepository, IRepository<ItemEntity> itemRepository)
         {
             this.appContext = appContext;
-            GoodRepository = new Repository<GoodEntity>(appContext);
-            OrderRepository = new Repository<OrderEntity>(appContext);
-            ShopRepository = new Repository<ShopEntity>(appContext);
+            GoodRepository = goodRepository;
+            OrderRepository = orderRepository;
+            ItemRepository = itemRepository;
         }
 
         public void SaveChanges()

@@ -11,6 +11,7 @@ using AutoMapper;
 using AutoMapper.Configuration;
 using OrderingGoods.BusinessLayer.DomainModels;
 using OrderingGoods.BusinessLayer.Services;
+using OrderingGoods.DataAccessLayer.Entities;
 
 namespace OrderingGoods
 {
@@ -32,22 +33,23 @@ namespace OrderingGoods
 
         private void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IGoodService, GoodService>();
-            services.AddTransient<IOrderService, OrderService>();
-            services.AddTransient<IShopService, ShopService>();
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddSingleton<IUnitOfWork, UnitOfWork>();
+            services.AddSingleton<IRepository<GoodEntity>, Repository<GoodEntity>>();
+            services.AddSingleton<IRepository<OrderEntity>, Repository<OrderEntity>>();
+            services.AddSingleton<IRepository<ItemEntity>, Repository<ItemEntity>>();
             services.AddSingleton(GetOrderingGoodsMapper());
-            services.AddSingleton<IConfigurationProvider, MapperConfiguration>();
-            services.AddSingleton<MapperConfigurationExpression, MapperConfigurationExpression>();
-            services.AddDbContext<OrderingGoodsContext>(opt =>
-                opt.UseSqlServer(ConfigurationManager.ConnectionStrings["OrderingGoodsDatabase"].ConnectionString));
+            services.AddSingleton<IGoodService, GoodService>();
+            services.AddSingleton<IOrderService, OrderService>();
+            services.AddSingleton<IItemService, ItemService>();
+
+            services.AddDbContext<OrderingGoodsContext>(ServiceLifetime.Singleton);
         }
 
         private IMapper GetOrderingGoodsMapper()
         {
             var configuration = new MapperConfiguration(cfg => 
             {
-                cfg.CreateMap<DataAccessLayer.Entities.GoodEntity, Good>();
+                cfg.AddProfile(new AutoMapperConfig());
             });
             return configuration.CreateMapper();
         }
@@ -57,7 +59,7 @@ namespace OrderingGoods
             base.OnStartup(e);
 
             var viewModel = new ApplicationViewModel(serviceProvider.GetService<IGoodService>(),
-                serviceProvider.GetService<IOrderService>(), serviceProvider.GetService<IShopService>());
+                serviceProvider.GetService<IOrderService>(), serviceProvider.GetService<IItemService>());
             MainWindow = new OrderingGoodsWindow() { DataContext = viewModel};
             MainWindow.Show();
         }
