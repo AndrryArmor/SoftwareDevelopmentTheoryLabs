@@ -4,9 +4,13 @@ namespace OrderingGoods.DataAccessLayer.Entities
 {
     public class ItemEntity
     {
-        [Key]
-        public int ID {get; set;}
+        public int Id { get; set; }
+
+        [Required]
         public GoodEntity Good { get; set; }
+        [Required]
+        public ShopEntity Shop { get; set; }
+        [Required]
         public double Price { get; set; }
     }
 }
