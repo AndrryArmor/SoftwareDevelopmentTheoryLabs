@@ -1,4 +1,5 @@
 ﻿using OrderingGoods.DataAccessLayer.Entities;
+using OrderingGoods.DataAccessLayer.Repository;
 
 namespace OrderingGoods.DataAccessLayer
 {
@@ -6,12 +7,12 @@ namespace OrderingGoods.DataAccessLayer
     {
         private readonly OrderingGoodsContext appContext;
 
-        public IRepository<GoodEntity> GoodRepository { get; }
-        public IRepository<OrderEntity> OrderRepository { get; }
-        public IRepository<ItemEntity> ItemRepository { get; }
+        public IGoodRepository GoodRepository { get; }
+        public IOrderRepository OrderRepository { get; }
+        public IItemRepository ItemRepository { get; }
 
-        public UnitOfWork(OrderingGoodsContext appContext, IRepository<GoodEntity> goodRepository,
-            IRepository<OrderEntity> orderRepository, IRepository<ItemEntity> itemRepository)
+        public UnitOfWork(OrderingGoodsContext appContext, IGoodRepository goodRepository,
+            IOrderRepository orderRepository, IItemRepository itemRepository)
         {
             this.appContext = appContext;
             GoodRepository = goodRepository;
