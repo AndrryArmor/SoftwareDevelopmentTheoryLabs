@@ -22,7 +22,7 @@ namespace OrderingGoods.BusinessLayer.Services
         {
             var itemEntities = unitOfWork.ItemRepository.GetAll();
             var list = new List<ItemEntity>(itemEntities);
-            var items = itemEntities.Select(item => mapper.Map<ItemEntity, Item>(item));
+            var items = itemEntities.Select(itemEntity => mapper.Map<Item>(itemEntity));
             var list2 = new List<Item>(items);
             return items.Where(item => item.Good.Name == goodName);
         }

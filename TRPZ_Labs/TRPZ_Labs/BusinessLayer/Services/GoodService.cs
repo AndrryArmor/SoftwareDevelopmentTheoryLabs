@@ -20,7 +20,7 @@ namespace OrderingGoods.BusinessLayer.Services
 
         public IEnumerable<string> GetAllGoodNames()
         {
-            IEnumerable<Good> goods = unitOfWork.GoodRepository.GetAll().Select(good => mapper.Map<GoodEntity, Good>(good));
+            IEnumerable<Good> goods = unitOfWork.GoodRepository.GetAll().Select(goodEntity => mapper.Map<Good>(goodEntity));
             return goods.Select(good => good.Name).ToHashSet();
         }
     }

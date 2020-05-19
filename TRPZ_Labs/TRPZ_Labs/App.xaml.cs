@@ -12,6 +12,7 @@ using AutoMapper.Configuration;
 using OrderingGoods.BusinessLayer.DomainModels;
 using OrderingGoods.BusinessLayer.Services;
 using OrderingGoods.DataAccessLayer.Entities;
+using OrderingGoods.DataAccessLayer.Repository;
 
 namespace OrderingGoods
 {
@@ -34,9 +35,9 @@ namespace OrderingGoods
         private void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IUnitOfWork, UnitOfWork>();
-            services.AddSingleton<IRepository<GoodEntity>, Repository<GoodEntity>>();
-            services.AddSingleton<IRepository<OrderEntity>, Repository<OrderEntity>>();
-            services.AddSingleton<IRepository<ItemEntity>, Repository<ItemEntity>>();
+            services.AddSingleton<IGoodRepository, GoodRepository>();
+            services.AddSingleton<IOrderRepository, OrderRepository>();
+            services.AddSingleton<IItemRepository, ItemRepository>();
             services.AddSingleton(GetOrderingGoodsMapper());
             services.AddSingleton<IGoodService, GoodService>();
             services.AddSingleton<IOrderService, OrderService>();
