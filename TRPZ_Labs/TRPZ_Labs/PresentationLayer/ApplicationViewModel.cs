@@ -61,7 +61,7 @@ namespace OrderingGoods.PresentationLayer
                 selectedGoodName = value;
                 OnPropertyChanged("SelectedGoodName");
 
-                Items = Items ?? new ObservableCollection<Item>(itemService.GetItems(selectedGoodName));
+                Items = new ObservableCollection<Item>(itemService.GetItems(selectedGoodName));
             }
         }
         public Item SelectedItem 
@@ -90,8 +90,7 @@ namespace OrderingGoods.PresentationLayer
             {
                 return makeOrderCommand ?? (makeOrderCommand = new RelayCommand(obj =>
                     {
-                        TimeSpan termInDays = new TimeSpan(Term, 0, 0, 0);
-                        Orders.Add(new Order(SelectedItem, DateTime.Now, termInDays));
+                        Orders.Add(new Order(SelectedItem, DateTime.Now, Term));
                     }));
             }
         }
@@ -115,6 +114,7 @@ namespace OrderingGoods.PresentationLayer
             this.goodService = goodService;
             this.orderService = orderService;
             this.itemService = itemService;
+            var _ = goodService.GetAllGoodNames();
             GoodNames = new ObservableCollection<string>(goodService.GetAllGoodNames());
             Orders = new ObservableCollection<Order>(orderService.GetAllOrders());
         }
