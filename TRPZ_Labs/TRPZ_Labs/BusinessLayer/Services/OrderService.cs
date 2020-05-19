@@ -20,15 +20,17 @@ namespace OrderingGoods.BusinessLayer.Services
 
         public IEnumerable<Order> GetAllOrders()
         {
-            return unitOfWork.OrderRepository.GetAll().Select(order => mapper.Map<OrderEntity, Order>(order));
+            return unitOfWork.OrderRepository.GetAll().Select(orderEntity => mapper.Map<Order>(orderEntity));
         }
 
         public void SaveOrders(IEnumerable<Order> orders)
         {
             foreach (var order in orders)
             {
-                unitOfWork.OrderRepository.Update(mapper.Map<Order, OrderEntity>(order));
+                unitOfWork.OrderRepository.Create(mapper.Map<OrderEntity>(order));
             }
+
+            unitOfWork.SaveChanges();
         }
     }
 }
