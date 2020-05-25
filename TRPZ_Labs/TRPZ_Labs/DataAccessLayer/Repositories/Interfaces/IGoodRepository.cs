@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace OrderingGoods.DataAccessLayer.Repository
 {
-    public interface IGoodRepository : IRepository<GoodEntity>
+    public interface IGoodRepository : IRepository<GoodEntity, int>
     {
     }
 }

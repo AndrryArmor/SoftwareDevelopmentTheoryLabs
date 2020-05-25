@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace OrderingGoods.DataAccessLayer.Repository
 {
-    public interface IItemRepository : IRepository<ItemEntity>
+    public interface IItemRepository : IRepository<ItemEntity, int>
     {
 
     }

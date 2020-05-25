@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace OrderingGoods.DataAccessLayer.Repository
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity: class
+    public class Repository<TEntity, TKey> : IRepository<TEntity, TKey> where TEntity : class
     {
         protected readonly OrderingGoodsContext appContext;
         protected readonly DbSet<TEntity> entities;
@@ -22,12 +22,12 @@ namespace OrderingGoods.DataAccessLayer.Repository
             entities.Add(entity);
         }
 
-        public virtual void Delete(int id)
+        public virtual void Delete(TKey id)
         {
             entities.Remove(appContext.Set<TEntity>().Find(id));
         }
 
-        public virtual TEntity Read(int id)
+        public virtual TEntity Read(TKey id)
         {
             return entities.Find(id);
         }
@@ -36,10 +36,10 @@ namespace OrderingGoods.DataAccessLayer.Repository
         {
             entities.Update(entity);
         }
+
         public virtual IEnumerable<TEntity> GetAll()
         {
-            var _ = entities.AsNoTracking().ToList();
-            return _;
+            return entities.AsNoTracking().ToList();
         }
     }
 }

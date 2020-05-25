@@ -5,7 +5,7 @@ namespace OrderingGoods.BusinessLayer.DomainModels
 {
     public class Order
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public Item Item { get; set; }
         public DateTime Date { get; set; }
         public int Term { get; set; }

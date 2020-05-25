@@ -8,7 +8,7 @@
     <Grid>
         <DataGrid x:Name="DataGridOrders" HorizontalAlignment="Left" Margin="10,41,0,10" AutoGenerateColumns="False" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" SelectionChanged="DataGridOrders_SelectionChanged" Width="427">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding Path=ID}" Width="45" />
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=Id}" Width="45" />
                 <DataGridTextColumn Header="Назва товару" Binding="{Binding Path=Item.Good.Name}" Width="100" >
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
@@ -18,7 +18,7 @@
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="Ціна" Binding="{Binding Path=Item.Price}" Width="75" />
                 <DataGridTextColumn Header="Дата" Binding="{Binding Path=Date}" Width="125" />
-                <DataGridTextColumn Header="Термін (днів)" Binding="{Binding Path=Term.Days}" Width="80" />
+                <DataGridTextColumn Header="Термін (днів)" Binding="{Binding Path=Term}" Width="80" />
             </DataGrid.Columns>
         </DataGrid>
         <Grid Margin="442,51,0,10" HorizontalAlignment="Left" Width="292">

@@ -29,7 +29,7 @@ namespace OrderingGoods.PresentationLayer
         private void DataGridOrders_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Item selectedItem = ((Order)DataGridOrders.SelectedItem).Item;
-            TextBlockGoodID.Text = selectedItem.Good.ID.ToString();
+            TextBlockGoodID.Text = selectedItem.Good.Id.ToString();
             TextBlockShopName.Text = selectedItem.Shop.Name;
             TextBlockModel.Text = selectedItem.Good.Model;
             TextBlockManufacturer.Text = selectedItem.Good.Manufacturer;

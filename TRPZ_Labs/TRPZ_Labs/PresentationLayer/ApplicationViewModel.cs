@@ -24,6 +24,7 @@ namespace OrderingGoods.PresentationLayer
         private string selectedGoodName;
         private Item selectedItem;
         private int term;
+        private bool isClosed = false;
 
         public ObservableCollection<string> GoodNames
         {
@@ -51,6 +52,7 @@ namespace OrderingGoods.PresentationLayer
             {
                 orders = value;
                 OnPropertyChanged("Orders");
+
             }
         }
         public string SelectedGoodName 
@@ -80,6 +82,17 @@ namespace OrderingGoods.PresentationLayer
             {
                 term = value;
                 OnPropertyChanged("Term");
+            }
+        }
+        public bool IsClosed
+        {
+            get => isClosed;
+            set
+            {
+                isClosed = value;
+                if (isClosed == true)
+                    orderService.SaveOrders(Orders);
+                OnPropertyChanged("IsClosed");
             }
         }
 
@@ -119,10 +132,10 @@ namespace OrderingGoods.PresentationLayer
             Orders = new ObservableCollection<Order>(orderService.GetAllOrders());
         }
 
-        ~ApplicationViewModel()
-        {
-            orderService.SaveOrders(Orders);
-        }
+        //~ApplicationViewModel()
+        //{
+        //    orderService.SaveOrders(Orders);
+        //}
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")

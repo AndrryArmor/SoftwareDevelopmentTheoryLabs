@@ -4,7 +4,7 @@ namespace OrderingGoods.BusinessLayer.DomainModels
 {
     public class Good
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Model { get; set; }
         public string Manufacturer { get; set; }
