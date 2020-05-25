@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace OrderingGoods.DataAccessLayer.Repository
 {
-    public class ItemRepository : Repository<ItemEntity>, IItemRepository
+    public class ItemRepository : Repository<ItemEntity, int>, IItemRepository
     {
         public ItemRepository(OrderingGoodsContext appContext) : base(appContext) { }
 

@@ -19,9 +19,15 @@ namespace OrderingGoods.PresentationLayer
     /// </summary>
     public partial class OrderingGoodsWindow : Window
     {
+        public bool IsClosed { get; set; } = false;
         public OrderingGoodsWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Tag = true;
         }
     }
 }
