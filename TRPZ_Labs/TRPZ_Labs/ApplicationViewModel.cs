@@ -24,7 +24,6 @@ namespace OrderingGoods.PresentationLayer
         private string selectedGoodName;
         private Item selectedItem;
         private int term;
-        private bool isClosed = false;
 
         public ObservableCollection<string> GoodNames
         {
@@ -52,7 +51,6 @@ namespace OrderingGoods.PresentationLayer
             {
                 orders = value;
                 OnPropertyChanged("Orders");
-
             }
         }
         public string SelectedGoodName 
@@ -63,7 +61,7 @@ namespace OrderingGoods.PresentationLayer
                 selectedGoodName = value;
                 OnPropertyChanged("SelectedGoodName");
 
-                Items = new ObservableCollection<Item>(itemService.GetItems(selectedGoodName));
+                Items = new ObservableCollection<Item>(itemService.GetItemsByGoodName(selectedGoodName));
             }
         }
         public Item SelectedItem 
@@ -84,17 +82,6 @@ namespace OrderingGoods.PresentationLayer
                 OnPropertyChanged("Term");
             }
         }
-        public bool IsClosed
-        {
-            get => isClosed;
-            set
-            {
-                isClosed = value;
-                if (isClosed == true)
-                    orderService.SaveOrders(Orders);
-                OnPropertyChanged("IsClosed");
-            }
-        }
 
         private RelayCommand makeOrderCommand;
         public RelayCommand MakeOrderCommand
@@ -103,7 +90,10 @@ namespace OrderingGoods.PresentationLayer
             {
                 return makeOrderCommand ?? (makeOrderCommand = new RelayCommand(obj =>
                     {
-                        Orders.Add(new Order(SelectedItem, DateTime.Now, Term));
+                        var newOrder = new Order(SelectedItem, DateTime.Now, Term);
+                        Orders.Add(newOrder);
+                        orderService.SaveOrder(newOrder);
+                        App.ShowMessage("Замовлення створено успішно!");
                     }));
             }
         }
@@ -127,15 +117,9 @@ namespace OrderingGoods.PresentationLayer
             this.goodService = goodService;
             this.orderService = orderService;
             this.itemService = itemService;
-            var _ = goodService.GetAllGoodNames();
             GoodNames = new ObservableCollection<string>(goodService.GetAllGoodNames());
             Orders = new ObservableCollection<Order>(orderService.GetAllOrders());
         }
-
-        //~ApplicationViewModel()
-        //{
-        //    orderService.SaveOrders(Orders);
-        //}
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")
