@@ -51,5 +51,15 @@
     <Compile Include="Services\MappingService.cs" />
     <Compile Include="Services\OrderService.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OrderingGoods.DataAccessLayer\OrderingGoods.DataAccessLayer.csproj">
+      <Project>{a65efc89-0ada-4333-825a-15697a331543}</Project>
+      <Name>OrderingGoods.DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OrderingGoods.Models\OrderingGoods.Models.csproj">
+      <Project>{010bbe24-d37b-4acf-832e-4a6f84783c3c}</Project>
+      <Name>OrderingGoods.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

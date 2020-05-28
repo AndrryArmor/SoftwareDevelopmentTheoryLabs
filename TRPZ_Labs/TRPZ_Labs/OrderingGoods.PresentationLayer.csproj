@@ -388,7 +388,20 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\OrderingGoods.BusinessLayer\OrderingGoods.BusinessLayer.csproj">
+      <Project>{90724e8c-bca8-4b1b-b7e4-37694e90346f}</Project>
+      <Name>OrderingGoods.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OrderingGoods.DataAccessLayer\OrderingGoods.DataAccessLayer.csproj">
+      <Project>{a65efc89-0ada-4333-825a-15697a331543}</Project>
+      <Name>OrderingGoods.DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OrderingGoods.Models\OrderingGoods.Models.csproj">
+      <Project>{010bbe24-d37b-4acf-832e-4a6f84783c3c}</Project>
+      <Name>OrderingGoods.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.1.1.1\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.1.1.1\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
