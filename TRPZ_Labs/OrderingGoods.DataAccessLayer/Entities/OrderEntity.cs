@@ -9,6 +9,8 @@ namespace OrderingGoods.DataAccessLayer.Entities
 
         [Required]
         public ItemEntity Item { get; set; }
+        public int ItemId { get; set; }
+
         [Required]
         public DateTime Date { get; set; }
         [Required]
