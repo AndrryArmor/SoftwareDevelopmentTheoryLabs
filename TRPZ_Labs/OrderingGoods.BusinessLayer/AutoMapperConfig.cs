@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using OrderingGoods.BusinessLayer.DomainModels;
+using OrderingGoods.Models;
 using OrderingGoods.DataAccessLayer.Entities;
 using System;
 using System.Collections.Generic;

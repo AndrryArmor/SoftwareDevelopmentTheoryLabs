@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using AutoMapper.Features;
-using OrderingGoods.BusinessLayer.DomainModels;
+using OrderingGoods.Models;
 using OrderingGoods.DataAccessLayer;
 using OrderingGoods.DataAccessLayer.Entities;
 using System.Collections.Generic;

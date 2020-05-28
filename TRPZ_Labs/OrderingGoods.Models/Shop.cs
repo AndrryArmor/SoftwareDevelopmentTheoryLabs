@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace OrderingGoods.BusinessLayer.DomainModels
+namespace OrderingGoods.Models
 {
     public class Shop
     {
