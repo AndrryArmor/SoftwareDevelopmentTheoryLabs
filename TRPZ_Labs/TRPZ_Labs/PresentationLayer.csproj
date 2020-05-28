@@ -389,17 +389,17 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OrderingGoods.BusinessLayer\OrderingGoods.BusinessLayer.csproj">
+    <ProjectReference Include="..\OrderingGoods.BusinessLayer\BusinessLayer.csproj">
       <Project>{90724e8c-bca8-4b1b-b7e4-37694e90346f}</Project>
-      <Name>OrderingGoods.BusinessLayer</Name>
+      <Name>BusinessLayer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OrderingGoods.DataAccessLayer\OrderingGoods.DataAccessLayer.csproj">
+    <ProjectReference Include="..\OrderingGoods.DataAccessLayer\DataAccessLayer.csproj">
       <Project>{a65efc89-0ada-4333-825a-15697a331543}</Project>
-      <Name>OrderingGoods.DataAccessLayer</Name>
+      <Name>DataAccessLayer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OrderingGoods.Models\OrderingGoods.Models.csproj">
+    <ProjectReference Include="..\OrderingGoods.Models\Models.csproj">
       <Project>{010bbe24-d37b-4acf-832e-4a6f84783c3c}</Project>
-      <Name>OrderingGoods.Models</Name>
+      <Name>Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
