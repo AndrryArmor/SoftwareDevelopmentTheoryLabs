@@ -328,35 +328,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BusinessLayer\AutoMapperConfig.cs" />
-    <Compile Include="BusinessLayer\Services\MappingService.cs" />
-    <Compile Include="BusinessLayer\Services\Interfaces\IItemService.cs" />
-    <Compile Include="BusinessLayer\Services\Interfaces\IGoodService.cs" />
-    <Compile Include="BusinessLayer\Services\Interfaces\IOrderService.cs" />
-    <Compile Include="BusinessLayer\Services\ItemService.cs" />
-    <Compile Include="BusinessLayer\Services\OrderService.cs" />
-    <Compile Include="BusinessLayer\Services\GoodService.cs" />
-    <Compile Include="DataAccessLayer\Repositories\Interfaces\IOrderRepository.cs" />
-    <Compile Include="DataAccessLayer\Repositories\Interfaces\IItemRepository.cs" />
-    <Compile Include="DataAccessLayer\Repositories\Interfaces\IGoodRepository.cs" />
-    <Compile Include="DataAccessLayer\Migrations\20200518225910_InitialCreate.cs" />
-    <Compile Include="DataAccessLayer\Migrations\20200518225910_InitialCreate.designer.cs">
-      <DependentUpon>20200518225910_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataAccessLayer\Migrations\OrderingGoodsContextModelSnapshot.cs" />
-    <Compile Include="DataAccessLayer\OrderingGoodsContext.cs" />
-    <Compile Include="DataAccessLayer\Entities\GoodEntity.cs" />
-    <Compile Include="DataAccessLayer\Entities\ItemEntity.cs" />
-    <Compile Include="DataAccessLayer\Entities\OrderEntity.cs" />
-    <Compile Include="DataAccessLayer\Entities\ShopEntity.cs" />
-    <Compile Include="DataAccessLayer\Repositories\Interfaces\IRepository.cs" />
-    <Compile Include="DataAccessLayer\IUnitOfWork.cs" />
-    <Compile Include="DataAccessLayer\Repositories\ItemRepository.cs" />
-    <Compile Include="DataAccessLayer\Repositories\OrderRepository.cs" />
-    <Compile Include="DataAccessLayer\Repositories\GoodRepository.cs" />
-    <Compile Include="DataAccessLayer\Repositories\Repository.cs" />
-    <Compile Include="DataAccessLayer\UnitOfWork.cs" />
-    <Compile Include="BusinessLayer\DomainModels\Shop.cs" />
     <Compile Include="PresentationLayer\RelayCommand.cs" />
     <Compile Include="PresentationLayer\ApplicationViewModel.cs" />
     <Compile Include="PresentationLayer\OrderingGoodsWindow.xaml.cs">
@@ -369,8 +340,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BusinessLayer\DomainModels\Good.cs" />
-    <Compile Include="BusinessLayer\DomainModels\Item.cs" />
     <Page Include="PresentationLayer\OrderingGoodsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -381,7 +350,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessLayer\DomainModels\Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -399,8 +367,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="DataAccessLayer\Shops.data" />
-    <None Include="DataAccessLayer\Goods.data" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
