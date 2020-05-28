@@ -328,23 +328,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="PresentationLayer\RelayCommand.cs" />
-    <Compile Include="PresentationLayer\ApplicationViewModel.cs" />
-    <Compile Include="PresentationLayer\OrderingGoodsWindow.xaml.cs">
+    <Compile Include="RelayCommand.cs" />
+    <Compile Include="ApplicationViewModel.cs" />
+    <Compile Include="OrderingGoodsWindow.xaml.cs">
       <DependentUpon>OrderingGoodsWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PresentationLayer\OrdersWindow.xaml.cs">
+    <Compile Include="OrdersWindow.xaml.cs">
       <DependentUpon>OrdersWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="PresentationLayer\OrderingGoodsWindow.xaml">
+    <Page Include="OrderingGoodsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PresentationLayer\OrdersWindow.xaml">
+    <Page Include="OrdersWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

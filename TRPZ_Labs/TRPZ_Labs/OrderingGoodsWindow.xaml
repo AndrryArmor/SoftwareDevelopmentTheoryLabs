@@ -4,8 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="OrderingGoodsWindow" Height="511" Width="800" 
-        Tag = "{Binding Path=IsClosed, Mode=TwoWay}" Closed="Window_Closed">
+        Title="OrderingGoodsWindow" Height="511" Width="800">
     <Grid>
         <ComboBox x:Name="ComboBoxGoodChoice" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="150" ItemsSource="{Binding GoodNames}" SelectedItem="{Binding SelectedGoodName}"/>
         <DataGrid x:Name="DataGridAvailableGoodsList" Height="344" Margin="10,65,10,0" VerticalAlignment="Top" AutoGenerateColumns="False" CanUserDeleteRows="False" CanUserAddRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" IsSynchronizedWithCurrentItem="True" IsReadOnly="True" CanUserResizeColumns="False" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}">
