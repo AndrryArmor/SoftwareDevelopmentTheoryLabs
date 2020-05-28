@@ -1,18 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="OrderingGoods.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
   <Profiles />
-  <Settings>
-    <Setting Name="GoodsFileName" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Goods.data</Value>
-    </Setting>
-    <Setting Name="ShopsFileName" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Shops.data</Value>
-    </Setting>
-    <Setting Name="OrdersFileName" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Orders.json</Value>
-    </Setting>
-    <Setting Name="DataPath" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">..\\..\\DataAccessLayer\\</Value>
-    </Setting>
-  </Settings>
+  <Settings />
 </SettingsFile>
