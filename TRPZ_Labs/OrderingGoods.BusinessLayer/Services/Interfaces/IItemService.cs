@@ -1,4 +1,4 @@
-﻿using OrderingGoods.BusinessLayer.DomainModels;
+﻿using OrderingGoods.Models;
 using System.Collections.Generic;
 
 namespace OrderingGoods.BusinessLayer.Services

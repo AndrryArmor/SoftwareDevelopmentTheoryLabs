@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 using AutoMapper;
 using AutoMapper.Configuration;
-using OrderingGoods.BusinessLayer.DomainModels;
+using OrderingGoods.Models;
 using OrderingGoods.BusinessLayer.Services;
 using OrderingGoods.DataAccessLayer.Entities;
 using OrderingGoods.DataAccessLayer.Repository;

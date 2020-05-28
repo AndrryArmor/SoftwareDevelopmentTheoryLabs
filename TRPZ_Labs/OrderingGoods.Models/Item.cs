@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace OrderingGoods.BusinessLayer.DomainModels
+namespace OrderingGoods.Models
 {
     public class Item
     {

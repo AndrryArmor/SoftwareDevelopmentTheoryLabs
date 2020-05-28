@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using OrderingGoods.BusinessLayer.DomainModels;
 using OrderingGoods.DataAccessLayer.Entities;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

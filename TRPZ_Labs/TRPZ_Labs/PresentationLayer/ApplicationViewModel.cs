@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using OrderingGoods.BusinessLayer;
-using OrderingGoods.BusinessLayer.DomainModels;
+using OrderingGoods.Models;
 using OrderingGoods.BusinessLayer.Services;
 
 namespace OrderingGoods.PresentationLayer
