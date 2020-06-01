@@ -23,7 +23,7 @@ namespace OrderingGoods.PresentationLayer
         private ObservableCollection<Order> orders;
         private string selectedGoodName;
         private Item selectedItem;
-        private int term;
+        private int term = 1;
 
         public ObservableCollection<string> GoodNames
         {

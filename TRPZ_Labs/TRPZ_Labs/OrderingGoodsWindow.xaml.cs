@@ -23,5 +23,11 @@ namespace OrderingGoods.PresentationLayer
         {
             InitializeComponent();
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (App.ShowMessage("Ви справді хочете вийти з програми?", true) == MessageBoxResult.No)
+                e.Cancel = true;
+        }
     }
 }

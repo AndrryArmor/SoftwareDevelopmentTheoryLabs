@@ -4,10 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="OrderingGoodsWindow" Height="511" Width="800">
+        Title="OrderingGoodsWindow" Height="510" Width="820" Closing="Window_Closing" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Grid>
         <ComboBox x:Name="ComboBoxGoodChoice" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="150" ItemsSource="{Binding GoodNames}" SelectedItem="{Binding SelectedGoodName}"/>
-        <DataGrid x:Name="DataGridAvailableGoodsList" Height="344" Margin="10,65,10,0" VerticalAlignment="Top" AutoGenerateColumns="False" CanUserDeleteRows="False" CanUserAddRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" IsSynchronizedWithCurrentItem="True" IsReadOnly="True" CanUserResizeColumns="False" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}">
+        <DataGrid x:Name="DataGridAvailableGoodsList" Height="335" Margin="10,65,10,0" VerticalAlignment="Top" AutoGenerateColumns="False" CanUserDeleteRows="False" CanUserAddRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" IsSynchronizedWithCurrentItem="True" IsReadOnly="True" CanUserResizeColumns="False" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID товару" Binding="{Binding Path=Good.Id}" Width="75" />
                 <DataGridTextColumn Header="Магазин" Binding="{Binding Path=Shop.Name}" Width="100" >
@@ -42,10 +42,10 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="ButtonOrderGood" Content="Замовити товар" Height="48" Margin="646,12,10,0" VerticalAlignment="Top" Command="{Binding MakeOrderCommand}"/>
-        <Slider x:Name="SliderTerm" HorizontalAlignment="Left" Margin="421,36,0,0" VerticalAlignment="Top" Width="220" Minimum="1" Maximum="14" SmallChange="1" LargeChange="7" TickPlacement="BottomRight" IsSnapToTickEnabled="True" Value="{Binding Term}"/>
+        <Slider x:Name="SliderTerm" HorizontalAlignment="Left" Margin="421,36,0,0" VerticalAlignment="Top" Width="220" Minimum="1" Maximum="14" SmallChange="1" LargeChange="5" TickPlacement="BottomRight" IsSnapToTickEnabled="True" Value="{Binding Term}"/>
         <Label Content="Термін (днів):" HorizontalAlignment="Left" Margin="421,10,0,0" VerticalAlignment="Top"/>
         <Label Content="Оберіть назву товару:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label Content="{Binding Term}" HorizontalAlignment="Left" Margin="510,10,0,0" VerticalAlignment="Top" Width="30"/>
-        <Button x:Name="ButtonViewOrders" Content=" Переглянути замовлення" Margin="288,414,287,10" Command="{Binding ViewOrdersCommand}" Height="56"/>
+        <Button x:Name="ButtonViewOrders" Content=" Переглянути замовлення" Margin="288,405,287,0" Command="{Binding ViewOrdersCommand}" Height="56" VerticalAlignment="Top"/>
     </Grid>
 </Window>

@@ -4,9 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Orders" Height="300" Width="750" ResizeMode="CanMinimize" Closing="Window_Closing">
+        Title="Orders" Height="300" Width="800" ResizeMode="CanMinimize" Closing="Window_Closing">
     <Grid>
-        <DataGrid x:Name="DataGridOrders" HorizontalAlignment="Left" Margin="10,41,0,10" AutoGenerateColumns="False" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" SelectionChanged="DataGridOrders_SelectionChanged" Width="427">
+        <DataGrid x:Name="DataGridOrders" HorizontalAlignment="Left" Margin="10,41,0,10" AutoGenerateColumns="False" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" SelectionChanged="DataGridOrders_SelectionChanged" Width="475" CanUserResizeRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Path=Id}" Width="45" />
                 <DataGridTextColumn Header="Назва товару" Binding="{Binding Path=Item.Good.Name}" Width="100" >
@@ -21,7 +21,7 @@
                 <DataGridTextColumn Header="Термін (днів)" Binding="{Binding Path=Term}" Width="80" />
             </DataGrid.Columns>
         </DataGrid>
-        <Grid Margin="442,51,0,10" HorizontalAlignment="Left" Width="292">
+        <Grid Margin="490,51,0,10" HorizontalAlignment="Left" Width="292">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="30*"/>
@@ -46,7 +46,7 @@
             <TextBlock Grid.Column="1" Text="Опис:" Grid.Row="4" Margin="0,0,0,-123"/>
         </Grid>
         <Label Content="Замовлення:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Label Content="Характеристики товару:" HorizontalAlignment="Left" Margin="442,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Характеристики товару:" HorizontalAlignment="Left" Margin="490,10,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
