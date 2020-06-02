@@ -25,13 +25,13 @@ namespace OrderingGoods.PresentationLayer
         private Item selectedItem;
         private int term = 1;
 
-        public ObservableCollection<GoodType> GoodNames
+        public ObservableCollection<GoodType> GoodTypes
         {
             get => goodTypes; 
             set
             {
                 goodTypes = value;
-                OnPropertyChanged("GoodNames");
+                OnPropertyChanged("GoodTypes");
             }
         }
         public ObservableCollection<Item> Items 
@@ -59,7 +59,7 @@ namespace OrderingGoods.PresentationLayer
             set
             {
                 selectedGoodType = value;
-                OnPropertyChanged("SelectedGoodName");
+                OnPropertyChanged("SelectedGoodType");
 
                 Items = new ObservableCollection<Item>(itemService.GetItemsByGoodTypeId(selectedGoodType.Id));
             }
@@ -117,7 +117,7 @@ namespace OrderingGoods.PresentationLayer
             this.goodTypeService = goodTypeService;
             this.orderService = orderService;
             this.itemService = itemService;
-            GoodNames = new ObservableCollection<GoodType>(goodTypeService.GetAllGoodTypes());
+            GoodTypes = new ObservableCollection<GoodType>(goodTypeService.GetAllGoodTypes());
             Orders = new ObservableCollection<Order>(orderService.GetAllOrders());
         }
 

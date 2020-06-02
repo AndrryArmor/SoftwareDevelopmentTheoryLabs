@@ -145,6 +145,10 @@
     <Compile Include="Migrations\20200518225910_InitialCreate.Designer.cs">
       <DependentUpon>20200518225910_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20200602224127_GoodTypeEntityAdded.cs" />
+    <Compile Include="Migrations\20200602224127_GoodTypeEntityAdded.designer.cs">
+      <DependentUpon>20200602224127_GoodTypeEntityAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\OrderingGoodsContextModelSnapshot.cs" />
     <Compile Include="OrderingGoodsContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

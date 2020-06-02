@@ -6,7 +6,7 @@
         mc:Ignorable="d"
         Title="OrderingGoodsWindow" Height="510" Width="820" Closing="Window_Closing" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <ComboBox x:Name="ComboBoxGoodChoice" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="150" ItemsSource="{Binding GoodNames}" SelectedItem="{Binding SelectedGoodName}" DisplayMemberPath="Type.Name"/>
+        <ComboBox x:Name="ComboBoxGoodChoice" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="150" ItemsSource="{Binding GoodTypes}" SelectedItem="{Binding SelectedGoodType}" DisplayMemberPath="Name"/>
         <DataGrid x:Name="DataGridAvailableGoodsList" Height="335" Margin="10,65,10,0" VerticalAlignment="Top" AutoGenerateColumns="False" CanUserDeleteRows="False" CanUserAddRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" IsSynchronizedWithCurrentItem="True" IsReadOnly="True" CanUserResizeColumns="False" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID товару" Binding="{Binding Path=Good.Id}" Width="75" />
