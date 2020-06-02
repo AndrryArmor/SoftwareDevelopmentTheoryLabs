@@ -35,7 +35,7 @@ namespace OrderingGoods
         private void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IUnitOfWork, UnitOfWork>();
-            services.AddSingleton<IGoodRepository, GoodRepository>();
+            services.AddSingleton<IGoodTypeRepository, GoodTypeRepository>();
             services.AddSingleton<IOrderRepository, OrderRepository>();
             services.AddSingleton<IItemRepository, ItemRepository>();
             services.AddSingleton(GetOrderingGoodsMapper());
