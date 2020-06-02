@@ -14,7 +14,7 @@ namespace OrderingGoods.PresentationLayer
 {
     public class ApplicationViewModel : INotifyPropertyChanged
     {
-        private readonly IGoodService goodService;
+        private readonly IGoodTypeService goodService;
         private readonly IOrderService orderService;
         private readonly IItemService itemService;
         private OrdersWindow ordersWindow;
@@ -112,12 +112,12 @@ namespace OrderingGoods.PresentationLayer
             }
         }
 
-        public ApplicationViewModel(IGoodService goodService, IOrderService orderService, IItemService itemService)
+        public ApplicationViewModel(IGoodTypeService goodService, IOrderService orderService, IItemService itemService)
         {
             this.goodService = goodService;
             this.orderService = orderService;
             this.itemService = itemService;
-            GoodNames = new ObservableCollection<string>(goodService.GetAllGoodNames());
+            GoodNames = new ObservableCollection<string>(goodService.GetAllGoodTypes());
             Orders = new ObservableCollection<Order>(orderService.GetAllOrders());
         }
 

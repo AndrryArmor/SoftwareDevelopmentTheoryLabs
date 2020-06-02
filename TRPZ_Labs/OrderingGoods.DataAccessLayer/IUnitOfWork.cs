@@ -5,7 +5,7 @@ namespace OrderingGoods.DataAccessLayer
 {
     public interface IUnitOfWork
     {
-        IGoodRepository GoodRepository { get; }
+        IGoodTypeRepository GoodTypeRepository { get; }
         IOrderRepository OrderRepository { get; }
         IItemRepository ItemRepository { get; }
 

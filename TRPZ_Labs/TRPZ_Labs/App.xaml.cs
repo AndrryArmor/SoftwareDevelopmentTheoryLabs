@@ -39,7 +39,7 @@ namespace OrderingGoods
             services.AddSingleton<IOrderRepository, OrderRepository>();
             services.AddSingleton<IItemRepository, ItemRepository>();
             services.AddSingleton(GetOrderingGoodsMapper());
-            services.AddSingleton<IGoodService, GoodService>();
+            services.AddSingleton<IGoodTypeService, GoodTypeService>();
             services.AddSingleton<IOrderService, OrderService>();
             services.AddSingleton<IItemService, ItemService>();
 
@@ -59,7 +59,7 @@ namespace OrderingGoods
         {
             base.OnStartup(e);
 
-            var viewModel = new ApplicationViewModel(serviceProvider.GetService<IGoodService>(),
+            var viewModel = new ApplicationViewModel(serviceProvider.GetService<IGoodTypeService>(),
                 serviceProvider.GetService<IOrderService>(), serviceProvider.GetService<IItemService>());
             MainWindow = new OrderingGoodsWindow() { DataContext = viewModel};
             MainWindow.Show();

@@ -5,6 +5,6 @@ namespace OrderingGoods.BusinessLayer.Services
 {
     public interface IItemService
     {
-        IEnumerable<Item> GetItemsByGoodName(string goodName);
+        IEnumerable<Item> GetItemsByGoodTypeId(int goodTypeId);
     }
 }

@@ -13,9 +13,14 @@ namespace OrderingGoods.BusinessLayer
     {        
         public AutoMapperConfig()
         {
-            CreateMap<GoodEntity, Good>().ReverseMap();
+            CreateMap<GoodTypeEntity, GoodType>().ReverseMap();
 
             CreateMap<ShopEntity, Shop>().ReverseMap();
+
+            CreateMap<GoodEntity, Good>();
+            CreateMap<Good, GoodEntity>()
+                .ForMember(goodEntity => goodEntity.TypeId, cfg => cfg.MapFrom(good => good.Type.Id))
+                .ForMember(goodEntity => goodEntity.Type, cfg => cfg.Ignore());
 
             CreateMap<ItemEntity, Item>();
             CreateMap<Item, ItemEntity>()
