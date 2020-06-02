@@ -7,7 +7,9 @@ namespace OrderingGoods.DataAccessLayer.Entities
         public int Id { get; set; }
 
         [Required]
-        public string Name { get; set; }
+        public GoodTypeEntity Type { get; set; }
+        public int TypeId { get; set; }
+
         public string Model { get; set; }
         [Required]
         public string Manufacturer { get; set; }

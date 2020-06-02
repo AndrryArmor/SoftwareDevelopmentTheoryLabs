@@ -18,11 +18,11 @@ namespace OrderingGoods.BusinessLayer.Services
             this.mapper = mapper;
         }
 
-        public IEnumerable<Item> GetItemsByGoodName(string goodName)
+        public IEnumerable<Item> GetItemsByGoodTypeId(int goodTypeId)
         {
             return unitOfWork.ItemRepository.GetAll()
                 .Select(itemEntity => mapper.Map<Item>(itemEntity))
-                .Where(item => item.Good.Name == goodName);
+                .Where(item => item.Good.Type.Id == goodTypeId);
         }
     }
 }

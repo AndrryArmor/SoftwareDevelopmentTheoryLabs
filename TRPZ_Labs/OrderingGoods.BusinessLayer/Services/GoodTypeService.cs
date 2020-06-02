@@ -7,26 +7,21 @@ using System.Linq;
 
 namespace OrderingGoods.BusinessLayer.Services
 {
-    public class GoodService : IGoodService
+    public class GoodTypeService : IGoodTypeService
     {
         private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
 
-        public GoodService(IUnitOfWork unitOfWork, IMapper mapper)
+        public GoodTypeService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
         }
 
-        public IEnumerable<string> GetAllGoodNames()
+        public IEnumerable<GoodType> GetAllGoodTypes()
         {
-            return unitOfWork.GoodRepository.GetAll()
-                .Select(goodEntity =>
-                {
-                    var good = mapper.Map<Good>(goodEntity);
-                    return good.Name;
-                })
-                .ToHashSet();
+            return unitOfWork.GoodTypeRepository.GetAll()
+                .Select(goodTypeEntity => mapper.Map<GoodType>(goodTypeEntity));
         }
     }
 }

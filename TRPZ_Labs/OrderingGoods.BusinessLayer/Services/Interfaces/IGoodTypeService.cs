@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 namespace OrderingGoods.BusinessLayer.Services
 {
-    public interface IGoodService
+    public interface IGoodTypeService
     {
-        IEnumerable<string> GetAllGoodNames();
+        IEnumerable<GoodType> GetAllGoodTypes();
     }
 }

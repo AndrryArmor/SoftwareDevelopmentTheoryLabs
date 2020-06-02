@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OrderingGoods.DataAccessLayer;
 
 namespace OrderingGoods.DataAccessLayer.Migrations
 {
     [DbContext(typeof(OrderingGoodsContext))]
-    partial class OrderingGoodsContextModelSnapshot : ModelSnapshot
+    [Migration("20200602224127_GoodTypeEntityAdded")]
+    partial class GoodTypeEntityAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

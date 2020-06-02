@@ -135,6 +135,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\GoodTypeEntity.cs" />
     <Compile Include="Entities\GoodEntity.cs" />
     <Compile Include="Entities\ItemEntity.cs" />
     <Compile Include="Entities\OrderEntity.cs" />
@@ -144,6 +145,10 @@
     <Compile Include="Migrations\20200518225910_InitialCreate.Designer.cs">
       <DependentUpon>20200518225910_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20200602224127_GoodTypeEntityAdded.cs" />
+    <Compile Include="Migrations\20200602224127_GoodTypeEntityAdded.designer.cs">
+      <DependentUpon>20200602224127_GoodTypeEntityAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\OrderingGoodsContextModelSnapshot.cs" />
     <Compile Include="OrderingGoodsContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -152,8 +157,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Repositories\GoodRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IGoodRepository.cs" />
+    <Compile Include="Repositories\GoodTypeRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IGoodTypeRepository.cs" />
     <Compile Include="Repositories\Interfaces\IItemRepository.cs" />
     <Compile Include="Repositories\Interfaces\IOrderRepository.cs" />
     <Compile Include="Repositories\Interfaces\IRepository.cs" />

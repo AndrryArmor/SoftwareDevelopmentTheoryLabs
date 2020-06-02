@@ -14,24 +14,24 @@ namespace OrderingGoods.PresentationLayer
 {
     public class ApplicationViewModel : INotifyPropertyChanged
     {
-        private readonly IGoodService goodService;
+        private readonly IGoodTypeService goodTypeService;
         private readonly IOrderService orderService;
         private readonly IItemService itemService;
         private OrdersWindow ordersWindow;
-        private ObservableCollection<string> goodNames;
+        private ObservableCollection<GoodType> goodTypes;
         private ObservableCollection<Item> items;
         private ObservableCollection<Order> orders;
-        private string selectedGoodName;
+        private GoodType selectedGoodType;
         private Item selectedItem;
         private int term = 1;
 
-        public ObservableCollection<string> GoodNames
+        public ObservableCollection<GoodType> GoodTypes
         {
-            get => goodNames; 
+            get => goodTypes; 
             set
             {
-                goodNames = value;
-                OnPropertyChanged("GoodNames");
+                goodTypes = value;
+                OnPropertyChanged("GoodTypes");
             }
         }
         public ObservableCollection<Item> Items 
@@ -53,15 +53,15 @@ namespace OrderingGoods.PresentationLayer
                 OnPropertyChanged("Orders");
             }
         }
-        public string SelectedGoodName 
+        public GoodType SelectedGoodType 
         { 
-            get => selectedGoodName;
+            get => selectedGoodType;
             set
             {
-                selectedGoodName = value;
-                OnPropertyChanged("SelectedGoodName");
+                selectedGoodType = value;
+                OnPropertyChanged("SelectedGoodType");
 
-                Items = new ObservableCollection<Item>(itemService.GetItemsByGoodName(selectedGoodName));
+                Items = new ObservableCollection<Item>(itemService.GetItemsByGoodTypeId(selectedGoodType.Id));
             }
         }
         public Item SelectedItem 
@@ -112,12 +112,12 @@ namespace OrderingGoods.PresentationLayer
             }
         }
 
-        public ApplicationViewModel(IGoodService goodService, IOrderService orderService, IItemService itemService)
+        public ApplicationViewModel(IGoodTypeService goodTypeService, IOrderService orderService, IItemService itemService)
         {
-            this.goodService = goodService;
+            this.goodTypeService = goodTypeService;
             this.orderService = orderService;
             this.itemService = itemService;
-            GoodNames = new ObservableCollection<string>(goodService.GetAllGoodNames());
+            GoodTypes = new ObservableCollection<GoodType>(goodTypeService.GetAllGoodTypes());
             Orders = new ObservableCollection<Order>(orderService.GetAllOrders());
         }
 

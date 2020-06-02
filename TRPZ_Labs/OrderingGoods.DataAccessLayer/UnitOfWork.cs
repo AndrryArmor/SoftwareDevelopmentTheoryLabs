@@ -7,15 +7,15 @@ namespace OrderingGoods.DataAccessLayer
     {
         private readonly OrderingGoodsContext appContext;
 
-        public IGoodRepository GoodRepository { get; }
+        public IGoodTypeRepository GoodTypeRepository { get; }
         public IOrderRepository OrderRepository { get; }
         public IItemRepository ItemRepository { get; }
 
-        public UnitOfWork(OrderingGoodsContext appContext, IGoodRepository goodRepository,
+        public UnitOfWork(OrderingGoodsContext appContext, IGoodTypeRepository goodTypeRepository,
             IOrderRepository orderRepository, IItemRepository itemRepository)
         {
             this.appContext = appContext;
-            GoodRepository = goodRepository;
+            GoodTypeRepository = goodTypeRepository;
             OrderRepository = orderRepository;
             ItemRepository = itemRepository;
         }
