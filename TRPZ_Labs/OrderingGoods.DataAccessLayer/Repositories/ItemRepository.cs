@@ -11,7 +11,9 @@ namespace OrderingGoods.DataAccessLayer.Repository
 
         public override IEnumerable<ItemEntity> GetAll()
         {
-            return entities.Include(itemEntity => itemEntity.Shop).Include(itemEnity => itemEnity.Good);
+            return entities.Include(itemEntity => itemEntity.Shop)
+                .Include(itemEntity => itemEntity.Good)
+                .ThenInclude(goodEntity => goodEntity.Type);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace OrderingGoods.DataAccessLayer.Repository
         {
             return entities
                 .Include(goodEntity => goodEntity.Item)
-                .Include(goodEntity => goodEntity.Item.Good)
+                .Include(goodEntity => goodEntity.Item.Good).ThenInclude(good => good.Type)
                 .Include(goodEntity => goodEntity.Item.Shop);
         }
     }

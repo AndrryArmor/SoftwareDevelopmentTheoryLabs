@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 namespace OrderingGoods.DataAccessLayer.Repository
 {
-    public class GoodRepository : Repository<GoodEntity, int>, IGoodRepository
+    public class GoodTypeRepository : Repository<GoodTypeEntity, int>, IGoodTypeRepository
     {
-        public GoodRepository(OrderingGoodsContext appContext) : base(appContext) { }
+        public GoodTypeRepository(OrderingGoodsContext appContext) : base(appContext) { }
     }
 }
