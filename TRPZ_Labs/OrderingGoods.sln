@@ -5,11 +5,17 @@ VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentationLayer", "TRPZ_Labs\PresentationLayer.csproj", "{CD0BEECC-1B86-40BD-8C10-54D95048AB72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "OrderingGoods.DataAccessLayer\DataAccessLayer.csproj", "{A65EFC89-0ADA-4333-825A-15697A331543}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer.Implementation", "OrderingGoods.DataAccessLayer\DataAccessLayer.Implementation.csproj", "{A65EFC89-0ADA-4333-825A-15697A331543}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "OrderingGoods.Models\Models.csproj", "{010BBE24-D37B-4ACF-832E-4A6F84783C3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "OrderingGoods.BusinessLayer\BusinessLayer.csproj", "{90724E8C-BCA8-4B1B-B7E4-37694E90346F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer.Implementation", "OrderingGoods.BusinessLayer\BusinessLayer.Implementation.csproj", "{90724E8C-BCA8-4B1B-B7E4-37694E90346F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer.Abstract", "DataAccessLayer.Abstract\DataAccessLayer.Abstract.csproj", "{EA5D8590-21C4-4510-A20E-108D302F19F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer.Abstract", "BusinessLayer.Abstract\BusinessLayer.Abstract.csproj", "{3CF7EC2D-4FF3-4106-9E13-AAA8933F1B62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{71A65B70-E56E-4C32-AF73-DFA04A64E3F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +39,18 @@ Global
 		{90724E8C-BCA8-4B1B-B7E4-37694E90346F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90724E8C-BCA8-4B1B-B7E4-37694E90346F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90724E8C-BCA8-4B1B-B7E4-37694E90346F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA5D8590-21C4-4510-A20E-108D302F19F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA5D8590-21C4-4510-A20E-108D302F19F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA5D8590-21C4-4510-A20E-108D302F19F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA5D8590-21C4-4510-A20E-108D302F19F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CF7EC2D-4FF3-4106-9E13-AAA8933F1B62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CF7EC2D-4FF3-4106-9E13-AAA8933F1B62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CF7EC2D-4FF3-4106-9E13-AAA8933F1B62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CF7EC2D-4FF3-4106-9E13-AAA8933F1B62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71A65B70-E56E-4C32-AF73-DFA04A64E3F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71A65B70-E56E-4C32-AF73-DFA04A64E3F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71A65B70-E56E-4C32-AF73-DFA04A64E3F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71A65B70-E56E-4C32-AF73-DFA04A64E3F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

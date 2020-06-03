@@ -7,8 +7,8 @@
     <ProjectGuid>{A65EFC89-0ADA-4333-825A-15697A331543}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OrderingGoods.DataAccessLayer</RootNamespace>
-    <AssemblyName>OrderingGoods.DataAccessLayer</AssemblyName>
+    <RootNamespace>OrderingGoods.DataAccessLayer.Implementation</RootNamespace>
+    <AssemblyName>OrderingGoods.DataAccessLayer.Implementation</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -135,12 +135,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\GoodTypeEntity.cs" />
-    <Compile Include="Entities\GoodEntity.cs" />
-    <Compile Include="Entities\ItemEntity.cs" />
-    <Compile Include="Entities\OrderEntity.cs" />
-    <Compile Include="Entities\ShopEntity.cs" />
-    <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Migrations\20200518225910_InitialCreate.cs" />
     <Compile Include="Migrations\20200518225910_InitialCreate.Designer.cs">
       <DependentUpon>20200518225910_InitialCreate.cs</DependentUpon>
@@ -158,10 +152,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Repositories\GoodTypeRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IGoodTypeRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IItemRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IOrderRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IRepository.cs" />
     <Compile Include="Repositories\ItemRepository.cs" />
     <Compile Include="Repositories\OrderRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
@@ -169,13 +159,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Goods.data" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Shops.data" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessLayer.Abstract\DataAccessLayer.Abstract.csproj">
+      <Project>{EA5D8590-21C4-4510-A20E-108D302F19F5}</Project>
+      <Name>DataAccessLayer.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{71A65B70-E56E-4C32-AF73-DFA04A64E3F4}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.1.0.19235.1\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.1.0.19235.1\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />

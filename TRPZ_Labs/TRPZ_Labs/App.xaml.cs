@@ -10,9 +10,12 @@ using System.Configuration;
 using AutoMapper;
 using AutoMapper.Configuration;
 using OrderingGoods.Models;
-using OrderingGoods.BusinessLayer.Services;
-using OrderingGoods.DataAccessLayer.Entities;
-using OrderingGoods.DataAccessLayer.Repository;
+using OrderingGoods.DataAccessLayer.Abstract;
+using OrderingGoods.DataAccessLayer.Implementation;
+using OrderingGoods.BusinessLayer.Abstract;
+using OrderingGoods.BusinessLayer.Implementation.Services;
+using OrderingGoods.DataAccessLayer.Implementation.Repository;
+using OrderingGoods.BusinessLayer.Implementation;
 
 namespace OrderingGoods
 {

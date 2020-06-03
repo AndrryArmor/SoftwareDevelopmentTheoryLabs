@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
 using OrderingGoods.Models;
-using OrderingGoods.DataAccessLayer.Entities;
+using OrderingGoods.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrderingGoods.BusinessLayer
+namespace OrderingGoods.BusinessLayer.Implementation
 {
     public class AutoMapperConfig : Profile
     {        

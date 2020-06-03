@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OrderingGoods.DataAccessLayer.Properties {
+namespace OrderingGoods.DataAccessLayer.Implementation.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

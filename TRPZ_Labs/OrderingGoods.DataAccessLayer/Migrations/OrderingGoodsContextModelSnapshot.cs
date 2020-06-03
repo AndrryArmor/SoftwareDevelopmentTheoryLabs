@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OrderingGoods.DataAccessLayer;
 
-namespace OrderingGoods.DataAccessLayer.Migrations
+namespace OrderingGoods.DataAccessLayer.Implementation.Migrations
 {
     [DbContext(typeof(OrderingGoodsContext))]
     partial class OrderingGoodsContextModelSnapshot : ModelSnapshot

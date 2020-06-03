@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace OrderingGoods.DataAccessLayer.Migrations
+namespace OrderingGoods.DataAccessLayer.Implementation.Migrations
 {
     public partial class GoodTypeEntityAdded : Migration
     {
