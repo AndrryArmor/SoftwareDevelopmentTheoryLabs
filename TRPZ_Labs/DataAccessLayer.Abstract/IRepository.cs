@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace OrderingGoods.DataAccessLayer.Repository
+namespace OrderingGoods.DataAccessLayer.Abstract
 {
     public interface IRepository<TEntity, TKey> where TEntity : class
     {

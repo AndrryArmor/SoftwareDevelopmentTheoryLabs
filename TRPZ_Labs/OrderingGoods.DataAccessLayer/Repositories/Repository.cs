@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using OrderingGoods.DataAccessLayer.Entities;
+using OrderingGoods.DataAccessLayer.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace OrderingGoods.DataAccessLayer.Repository
+namespace OrderingGoods.DataAccessLayer.Implementation.Repository
 {
     public class Repository<TEntity, TKey> : IRepository<TEntity, TKey> where TEntity : class
     {

@@ -389,13 +389,21 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OrderingGoods.BusinessLayer\BusinessLayer.csproj">
-      <Project>{90724e8c-bca8-4b1b-b7e4-37694e90346f}</Project>
-      <Name>BusinessLayer</Name>
+    <ProjectReference Include="..\BusinessLayer.Abstract\BusinessLayer.Abstract.csproj">
+      <Project>{3CF7EC2D-4FF3-4106-9E13-AAA8933F1B62}</Project>
+      <Name>BusinessLayer.Abstract</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OrderingGoods.DataAccessLayer\DataAccessLayer.csproj">
+    <ProjectReference Include="..\DataAccessLayer.Abstract\DataAccessLayer.Abstract.csproj">
+      <Project>{EA5D8590-21C4-4510-A20E-108D302F19F5}</Project>
+      <Name>DataAccessLayer.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OrderingGoods.BusinessLayer\BusinessLayer.Implementation.csproj">
+      <Project>{90724e8c-bca8-4b1b-b7e4-37694e90346f}</Project>
+      <Name>BusinessLayer.Implementation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OrderingGoods.DataAccessLayer\DataAccessLayer.Implementation.csproj">
       <Project>{a65efc89-0ada-4333-825a-15697a331543}</Project>
-      <Name>DataAccessLayer</Name>
+      <Name>DataAccessLayer.Implementation</Name>
     </ProjectReference>
     <ProjectReference Include="..\OrderingGoods.Models\Models.csproj">
       <Project>{010bbe24-d37b-4acf-832e-4a6f84783c3c}</Project>

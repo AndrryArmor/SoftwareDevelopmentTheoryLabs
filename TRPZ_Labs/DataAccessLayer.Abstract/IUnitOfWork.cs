@@ -1,7 +1,6 @@
-﻿using OrderingGoods.DataAccessLayer.Entities;
-using OrderingGoods.DataAccessLayer.Repository;
+﻿using OrderingGoods.Entities;
 
-namespace OrderingGoods.DataAccessLayer
+namespace OrderingGoods.DataAccessLayer.Abstract
 {
     public interface IUnitOfWork
     {

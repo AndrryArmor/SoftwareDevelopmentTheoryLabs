@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace OrderingGoods.DataAccessLayer.Entities
+namespace OrderingGoods.Entities
 {
     public class GoodTypeEntity
     {

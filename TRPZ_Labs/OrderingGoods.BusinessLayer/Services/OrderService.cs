@@ -1,12 +1,13 @@
 ﻿using AutoMapper;
 using OrderingGoods.Models;
-using OrderingGoods.DataAccessLayer;
-using OrderingGoods.DataAccessLayer.Entities;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using OrderingGoods.BusinessLayer.Abstract;
+using OrderingGoods.DataAccessLayer.Abstract;
+using OrderingGoods.Entities;
 
-namespace OrderingGoods.BusinessLayer.Services
+namespace OrderingGoods.BusinessLayer.Implementation.Services
 {
     public class OrderService : IOrderService
     {

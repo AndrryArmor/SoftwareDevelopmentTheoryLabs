@@ -6,8 +6,9 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OrderingGoods.DataAccessLayer;
+using OrderingGoods.DataAccessLayer.Implementation;
 
-namespace OrderingGoods.DataAccessLayer.Migrations
+namespace OrderingGoods.DataAccessLayer.Implementation.Migrations
 {
     [DbContext(typeof(OrderingGoodsContext))]
     [Migration("20200518225910_InitialCreate")]

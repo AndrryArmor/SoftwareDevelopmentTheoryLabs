@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace OrderingGoods.DataAccessLayer.Entities
+namespace OrderingGoods.Entities
 {
     public class ShopEntity
     {

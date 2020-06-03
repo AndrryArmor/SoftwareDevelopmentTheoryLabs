@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace OrderingGoods.BusinessLayer.Services
+namespace OrderingGoods.BusinessLayer.Abstract
 {
     public interface IOrderService
     {
